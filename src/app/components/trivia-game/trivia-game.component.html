@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Juego de Preguntas y Respuestas</h1>
+    <div *ngFor="let question of questions; let i = index" class="question-container">
+        <h2>{{ question.question }}</h2>
+        <ul class="options-list">
+            <li *ngFor="let option of question.options; let j = index">
+                <input type="radio" name="q{{ i }}" [value]="option" (change)="selectAnswer(i, option)" />
+                {{ option }}
+            </li>
+        </ul>
+    </div>
+    <button (click)="checkAnswers()">Comprobar Respuestas</button>
+    <div class="result" *ngIf="showResults">
+        <h2>Resultados:</h2>
+        <ul>
+            <li *ngFor="let result of results">
+                {{ result.question }} - {{ result.correct ? 'Correcta' : 'Incorrecta' }}
+            </li>
+        </ul>
+    </div>
+</div>
