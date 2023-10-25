@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <span class="titulo">Activities</span>
+            <button class="btn btn-success float-end" routerLink="/create-activity">NUEVO</button>
+            <div class="custom-table mt-3">
+                <div class="table-header">
+                    <div class="table-cell">nombre</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row" (click)="redirectToTriviaConfig()">
+                        <div class="table-cell">
+                            <div>
+                                Q & A
+                            </div>
+                        </div>
+                        <div class="table-cell actions">
+                            <!-- <i [routerLink]="['/edit-activity', activity._id]" class="fas fa-edit text-primary"></i> -->
+                            <!-- <i (click)="deleteProduct($event, activity._id)" class="fas fa-trash text-danger ml-2"></i> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 style="text-align: start; margin-top: 10px;" *ngIf="listActivities.length == 0">No hay products para mostrar</h5>
+        </div>
+    </div>
+</div>

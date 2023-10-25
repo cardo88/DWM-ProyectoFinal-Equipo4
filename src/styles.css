@@ -1,0 +1,10 @@
+@import '~font-awesome/css/font-awesome.css';
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: #fff;
+}
+
+.titulo {
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+}
