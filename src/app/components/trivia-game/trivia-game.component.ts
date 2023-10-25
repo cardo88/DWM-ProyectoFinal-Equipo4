@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-trivia-game',
@@ -6,22 +7,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./trivia-game.component.css']
 })
 export class TriviaGameComponent {
+    constructor(private router: Router) { }
 
-    questions: Question[] = [];
-    answers: (string | null)[] = []; // Un arreglo para almacenar las respuestas del usuario
-    showResults = false; // Variable para mostrar/ocultar los resultados
-    results: any[] = [];
-
-    selectAnswer(questionIndex: number, selectedOption: string) {
-        // Almacenar la respuesta del usuario para la pregunta actual
-        this.answers[questionIndex] = selectedOption;
+    startGame() {
+        // Redirigir al componente del juego o a la ruta correspondiente
+        this.router.navigate(['/game']);
     }
-
-    checkAnswers() {
-        // Lógica para comprobar las respuestas y calcular los resultados
-        // Puedes comparar las respuestas del usuario con las respuestas correctas aquí
-        // Llena un arreglo 'results' con objetos que indican qué preguntas son correctas/incorrectas
-        this.showResults = true; // Mostrar los resultados
-    }
-
 }

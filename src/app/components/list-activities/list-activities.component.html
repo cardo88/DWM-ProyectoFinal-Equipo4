@@ -1,33 +1,27 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
-            <span class="titulo">LISTADO DE PRODUCTS</span>
-            <button class="btn btn-success float-end" routerLink="/create-product">NUEVO</button>
-            <table *ngIf="listProducts.length > 0" class="table table-striped mt-3">
-                <thead>
-                    <tr>
-                        <th scope="col">nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Ubicacion</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let product of listProducts">
-                        <td>{{ product.nombre }}</td>
-                        <td>{{ product.categoria }}</td>
-                        <td>{{ product.ubicacion }}</td>
-                        <td>{{ product.precio | currency:'USD' }}</td>
-                        <td>
-                            <i [routerLink]="['/edit-product', product._id]" class="fas fa-edit text-primary"></i>
-                            <i (click)="deleteProduct(product._id)" class="fas fa-trash text-danger"></i>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <h5 style="text-align: start; margin-top: 10px;" *ngIf="listProducts.length == 0">No hay products
-                para mostrar</h5>
+            <span class="titulo">Activities</span>
+            <button class="btn btn-success float-end" routerLink="/create-activity">NUEVO</button>
+            <div class="custom-table mt-3">
+                <div class="table-header">
+                    <div class="table-cell">nombre</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row" (click)="redirectToTriviaConfig()">
+                        <div class="table-cell">
+                            <div>
+                                Q & A
+                            </div>
+                        </div>
+                        <div class="table-cell actions">
+                            <!-- <i [routerLink]="['/edit-activity', activity._id]" class="fas fa-edit text-primary"></i> -->
+                            <!-- <i (click)="deleteProduct($event, activity._id)" class="fas fa-trash text-danger ml-2"></i> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 style="text-align: start; margin-top: 10px;" *ngIf="listActivities.length == 0">No hay products para mostrar</h5>
         </div>
     </div>
 </div>

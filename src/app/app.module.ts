@@ -14,13 +14,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
+import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CreateActivityComponent,
         ListActivitiesComponent,
+        CreateActivityComponent,
+        CreateQuestionComponent,
         TriviaGameComponent,
     ],
     imports: [
