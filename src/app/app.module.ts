@@ -16,6 +16,9 @@ import { CreateActivityComponent } from './components/create-activity/create-act
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
+import { PlayerJoinComponent } from './components/player-join/player-join.component';
+import { PlayerWaitComponent } from './components/player-wait/player-wait.component';
+import { BemVindoComponent } from './components/bem-vindo/bem-vindo.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +27,9 @@ import { TriviaGameComponent } from './components/trivia-game/trivia-game.compon
         CreateActivityComponent,
         CreateQuestionComponent,
         TriviaGameComponent,
+        PlayerJoinComponent,
+        PlayerWaitComponent,
+        BemVindoComponent,
     ],
     imports: [
         BrowserModule,

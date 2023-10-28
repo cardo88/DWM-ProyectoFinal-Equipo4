@@ -1,0 +1,13 @@
+.cont {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.img-center {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
