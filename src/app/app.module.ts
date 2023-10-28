@@ -19,6 +19,8 @@ import { TriviaGameComponent } from './components/trivia-game/trivia-game.compon
 import { PlayerJoinComponent } from './components/player-join/player-join.component';
 import { PlayerWaitComponent } from './components/player-wait/player-wait.component';
 import { BemVindoComponent } from './components/bem-vindo/bem-vindo.component';
+import { PlayerVoteComponent } from './components/player-vote/player-vote.component';
+import { PlayerActivityComponent } from './components/player-activity/player-activity.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +32,8 @@ import { BemVindoComponent } from './components/bem-vindo/bem-vindo.component';
         PlayerJoinComponent,
         PlayerWaitComponent,
         BemVindoComponent,
+        PlayerVoteComponent,
+        PlayerActivityComponent,
     ],
     imports: [
         BrowserModule,

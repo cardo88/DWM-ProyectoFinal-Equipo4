@@ -7,9 +7,11 @@ import { CreateQuestionComponent } from './components/create-question/create-que
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
 import { PlayerJoinComponent } from './components/player-join/player-join.component';
 import { PlayerWaitComponent } from './components/player-wait/player-wait.component';
+import { PlayerActivityComponent } from './components/player-activity/player-activity.component';
 
 
 const routes: Routes = [ 
+    { path: 'player-activity', component: PlayerActivityComponent },
     { path: 'player-join', component: PlayerJoinComponent },
     { path: 'player-wait', component: PlayerWaitComponent },
     { path: 'list-activities', component: ListActivitiesComponent },
