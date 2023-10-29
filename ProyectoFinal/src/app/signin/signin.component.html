@@ -1,1 +1,20 @@
-<p>signin works!</p>
+<div class="signin">
+    <form class="custom-form" method="post">
+        <h1>Sign In</h1>
+        <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="email"
+            required="required"
+        />
+        <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="password"
+            required="required"
+        />
+        <button type="submit" (click)="signin()">Sign In</button>
+    </form>
+</div>

@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class SigninComponent {
 
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+
+  constructor(){}
+
+  signin(){
+    console.log(this.email);
+    console.log(this.password);
+  }
+
 }
