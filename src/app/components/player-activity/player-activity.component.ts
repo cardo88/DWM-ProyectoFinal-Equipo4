@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./player-activity.component.css']
 })
 export class PlayerActivityComponent {
+ 
 
 }

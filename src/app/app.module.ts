@@ -21,6 +21,7 @@ import { PlayerWaitComponent } from './components/player-wait/player-wait.compon
 import { BemVindoComponent } from './components/bem-vindo/bem-vindo.component';
 import { PlayerVoteComponent } from './components/player-vote/player-vote.component';
 import { PlayerActivityComponent } from './components/player-activity/player-activity.component';
+import { PlayerTimerComponent } from './components/player-timer/player-timer.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { PlayerActivityComponent } from './components/player-activity/player-act
         BemVindoComponent,
         PlayerVoteComponent,
         PlayerActivityComponent,
+        PlayerTimerComponent,
     ],
     imports: [
         BrowserModule,
