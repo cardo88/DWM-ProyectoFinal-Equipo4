@@ -13,4 +13,9 @@ export class TriviaGameComponent {
         // Redirigir al componente del juego o a la ruta correspondiente
         this.router.navigate(['/game']);
     }
+
+    goBack() {
+        // Volver atrás en la historia del navegador
+        window.history.back();
+    }
 }

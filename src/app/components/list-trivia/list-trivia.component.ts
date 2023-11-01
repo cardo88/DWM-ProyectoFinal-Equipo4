@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Questions } from 'src/app/models/trivia-game';
 import { CreateQuestionService } from 'src/app/services/create-question.service';
+import { CreateQuestionComponent } from 'src/app/components/create-question/create-question.component';
 
 @Component({
     selector: 'app-list-trivia',
@@ -13,14 +15,14 @@ export class ListTriviaComponent implements OnInit {
     listQuestions: Questions[] = [];
 
     constructor(
-        private _createQuestionService: CreateQuestionService, 
-        private toastr: ToastrService
+        private _createQuestionService: CreateQuestionService,
+        private toastr: ToastrService,
+        private router: Router
         ) { }
 
     ngOnInit(): void {
         this.getQuestions();
     }
-
 
     getQuestions() {
         this._createQuestionService.getQuestions().subscribe(data => {
@@ -28,12 +30,14 @@ export class ListTriviaComponent implements OnInit {
         });
     }
 
-    deleteProduct(event: Event, id: any) {        
+    deleteProduct(id: any) {        
         this._createQuestionService.deleteQuestion(id).subscribe(data => {
         this.toastr.error('El producto fue eliminado con éxito', 'Producto Eliminado');
         this.getQuestions();
         });
+    }
 
-        event.preventDefault();
+    redirectToTriviaConfig() {
+        this.router.navigate(['/trivia-game']);
     }
 }

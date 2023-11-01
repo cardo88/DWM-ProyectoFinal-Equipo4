@@ -4,7 +4,7 @@
 }
 
 .custom-table {
-    border: 1px solid #e5e5e5;
+    /* border: 1px solid #e5e5e5; */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -20,7 +20,7 @@
 .table-row {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #e5e5e5;
+    /* border-bottom: 1px solid #e5e5e5; */
     padding: 10px;
 }
 
@@ -36,3 +36,25 @@
 .table-row:hover {
     cursor: pointer; /* Cambia el cursor a una mano al pasar sobre este elemento */
 }
+
+.titulo {
+    display: flex;
+    justify-content: center;
+}
+
+.card-header {
+    background-color: #353535;
+    border-bottom: 1px solid #131313;
+    color: #fff;
+}
+
+.card-body {
+    background-color: #252525;
+    border-bottom: 1px solid #131313;
+    color: #fff;
+}
+
+.card {
+    border: 1px solid #131313;
+}
+
