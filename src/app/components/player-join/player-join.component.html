@@ -2,26 +2,27 @@
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <span class="titulo"> {{ titulo | uppercase }}</span>
-            <form class="mt-3" [formGroup]="joinForm" (ngSubmit)="addPlayer()">
+            <form class="mt-3" [formGroup]="joinForm" (ngSubmit)="joinPlayer()">
                 <div class="mb-3">
                     <input type="text" formControlName="nickname" class="form-control form-control-lg"
-                        placeholder="NickName">
-                    <div class="text-danger"
-                        *ngIf="joinForm.get('nickname')?.hasError('required') && joinForm.get('nickname')?.touched">
+                        placeholder="NickName" [(ngModel)]="player_nickname">
+                    <div class="text-danger" *ngIf="joinForm.get('nickname')?.hasError('required') && joinForm.get('nickname')?.touched">
                         <span>El NickName <strong>es obligatorio</strong></span>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="text" formControlName="code" class="form-control form-control-lg"
-                        placeholder="Código">
-                    <div class="text-danger"
-                        *ngIf="joinForm.get('code')?.hasError('required') && joinForm.get('code')?.touched">
+                    <input type="text" formControlName="code" class="form-control form-control-lg" placeholder="Código"
+                        (keypress)="onlyNumbers($event)" maxlength="4" [(ngModel)]="player_code">
+                    <div class="text-danger" *ngIf="joinForm.get('code')?.hasError('required') && joinForm.get('code')?.touched">
                         <span>El Código <strong>es obligatoria</strong></span>
+                    </div>
+                    <div class="text-danger" *ngIf="joinForm.get('code')?.hasError('longitudIncorrecta') && joinForm.get('code')?.touched">
+                        <span>El Código debe tener <strong>4 digitos</strong></span>
                     </div>
                 </div>
                 <div class="mb-3">
                     <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
-                    <button type="submit" [disabled]="joinForm.invalid"
+                    <button type="submit" [disabled]="joinForm.invalid" routerLink="/player-wait"
                         class="btn btn-success btn-lg float-end">JUGAR</button>
                 </div>
             </form>
