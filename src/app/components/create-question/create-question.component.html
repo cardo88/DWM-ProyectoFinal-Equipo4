@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-            <span class="titulo"> {{ titulo | uppercase }}</span>
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <span class="titulo"> {{ titulo }}</span>
             <form class="mt-3" [formGroup]="triviaForm" (ngSubmit)="addQuestion()">
                 <div class="mb-3">
                     <input type="text" formControlName="question" class="form-control form-control-lg"
@@ -27,37 +27,15 @@
                         <span>La ubicacion <strong>es obligatoria</strong></span>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
-                    <button type="submit" [disabled]="triviaForm.invalid"
-                        class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                <div class="mb-3 d-flex justify-content-between">
+                    <a [routerLink]="['/list-trivia']" class="ml-auto">
+                        <i class="fa-solid fa-arrow-left-long icon-rojo" style="font-size: 2rem;"></i>
+                    </a>
+                    <a class="ml-auto" href="/list-trivia" (click)="isFormValid ? addQuestion() : false">
+                        <i [ngClass]="(isFormValid == true) ? 'fa-solid fa-check icon-green':'fa-solid fa-check icon-gray'" style="font-size: 2rem;"></i>
+                    </a>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-<!-- <h2>hola</h2>
-<div *ngIf="trivia">
-    <h2>{{ trivia[0].question }}</h2>
-    <ul *ngIf="trivia.length>0">
-        <li *ngFor="let option of trivia[0].options">
-            <label>
-                <input type="radio" [(ngModel)]="userAnswer" [value]="option"> {{ option }}
-            </label>
-        </li>
-    </ul>
-    <button (click)="checkAnswer()">Submit Answer</button>
-    <div *ngIf="isCorrect" class="correct-toast">Correct Answer!</div>
-    <div *ngIf="isCorrect === false" class="incorrect-toast">Incorrect Answer!</div>
-    <button (click)="loadRandomQuestion()">Next Question</button>
-</div> -->

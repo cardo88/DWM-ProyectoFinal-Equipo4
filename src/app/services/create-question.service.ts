@@ -3,18 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Questions } from '../models/trivia-game';
 
-import { map } from 'rxjs/operators';
-
 @Injectable({
     providedIn: 'root'
 })
 export class CreateQuestionService {
 
-    private url = 'http://localhost:4000/api/question';
+    private url = 'http://localhost:4000/api/questions/';
 
     constructor(private http: HttpClient) { }
 
     getQuestions(): Observable<any> {
+        console.log('entramo');
         return this.http.get(this.url);
     }
 
