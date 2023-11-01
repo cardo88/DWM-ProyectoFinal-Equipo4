@@ -8,20 +8,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
+import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
+
 
 @NgModule({
     declarations: [
         AppComponent,
         ListActivitiesComponent,
-        CreateActivityComponent,
+        ListTriviaComponent,
         CreateQuestionComponent,
         TriviaGameComponent,
     ],
@@ -29,6 +31,7 @@ import { TriviaGameComponent } from './components/trivia-game/trivia-game.compon
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        RouterModule,
         AppRoutingModule,
         FormsModule,
         ToastrModule.forRoot(),

@@ -36,3 +36,15 @@
 .table-row:hover {
     cursor: pointer; /* Cambia el cursor a una mano al pasar sobre este elemento */
 }
+
+.icon-green {
+    color: green; /* Color verde para éxito */
+}
+
+.icon-gray {
+    color: grey; /* Color gris para deshabilitado */
+}
+
+.icon-rojo {
+    color: red;
+}

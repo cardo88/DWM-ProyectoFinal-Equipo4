@@ -12,10 +12,12 @@ import { CreateQuestionService } from '../../services/create-question.service';
 })
 export class CreateQuestionComponent implements OnInit {
 
+    isFormValid: boolean = false;
     triviaForm: FormGroup;
-    titulo = 'Crear Pregunta';
+    titulo = 'Create Question';
     id: string | null;
-    constructor(private fb: FormBuilder,
+    constructor(
+        private fb: FormBuilder,
         private router: Router,
         private toastr: ToastrService,
         private _createQuestionService: CreateQuestionService,
@@ -26,14 +28,18 @@ export class CreateQuestionComponent implements OnInit {
             correctAnswer: ['', Validators.required],
         })
         this.id = this.aRouter.snapshot.paramMap.get('id');
+
+        this.triviaForm.valueChanges.subscribe(() => {
+            this.isFormValid = this.triviaForm.valid;
+            console.log('isFormValid:', this.isFormValid);
+        });
     }
 
     ngOnInit(): void {
-        //this.addQuestion();
     }
 
-    addQuestion() {
 
+    addQuestion() {
         const QUESTION: Questions = {
             question: this.triviaForm.get('question')?.value,
             options: this.triviaForm.get('options')?.value,
@@ -43,7 +49,7 @@ export class CreateQuestionComponent implements OnInit {
         console.log(QUESTION);
         this._createQuestionService.saveQuestion(QUESTION).subscribe(data => {
             this.toastr.success('La pregunta fue registrado con exito!', 'La pregunta fue Registrado!');
-            this.router.navigate(['/']);
+            this.router.navigate(['/list-trivia']);
         })
     }
 }

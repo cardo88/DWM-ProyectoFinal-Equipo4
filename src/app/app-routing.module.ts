@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CreateActivityComponent } from './components/create-activity/create-activity.component'
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component'
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
+import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
+import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
 
 
 const routes: Routes = [ 
     { path: 'list-activities', component: ListActivitiesComponent },
-    { path: 'create-activity', component: CreateActivityComponent },
-    { path: 'edit-activity/:id', component: CreateActivityComponent },
     { path: 'create-question', component: CreateQuestionComponent },
-    { path: 'trivia-game', component: CreateQuestionComponent },
+    { path: 'trivia-game', component: TriviaGameComponent },
+    { path: 'list-trivia', component: ListTriviaComponent },
     { path: '**', redirectTo: 'list-activities', pathMatch: 'full' }
 ];
 

@@ -1,27 +1,55 @@
-<div class="container mt-5">
+<div class="container mt-5" style="background-color: #000;">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-8 offset-lg-2" style="margin-top: 5%;">
             <span class="titulo">Activities</span>
-            <button class="btn btn-success float-end" routerLink="/create-activity">NUEVO</button>
-            <div class="custom-table mt-3">
-                <div class="table-header">
-                    <div class="table-cell">nombre</div>
-                </div>
-                <div class="table-body">
-                    <div class="table-row" (click)="redirectToTriviaConfig()">
-                        <div class="table-cell">
-                            <div>
-                                Q & A
-                            </div>
+            <div class="row">
+
+                <div class="col-lg-4" style="margin-top: 5%;">
+                    <div class="card text-center mb-3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="text-center flex-grow-1">Q & A</h5>
+                            <a [routerLink]="['/list-trivia']"><i class="fa-solid fa-gear"></i></a>
                         </div>
-                        <div class="table-cell actions">
-                            <!-- <i [routerLink]="['/edit-activity', activity._id]" class="fas fa-edit text-primary"></i> -->
-                            <!-- <i (click)="deleteProduct($event, activity._id)" class="fas fa-trash text-danger ml-2"></i> -->
+                        <div class="card-body">
+                            <p class="card-title">
+                                "Show your knowledge in this exciting question and answer game!"</p>
+                            <br>
+                            <a href="/trivia-game" class="btn btn-primary">Go!</a>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4" style="margin-top: 5%;">
+                    <div class="card text-center mb-3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="text-center flex-grow-1">Q & A</h5>
+                            <a [routerLink]="['/list-trivia']"><i class="fa-solid fa-gear"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                "Show your knowledge in this exciting question and answer game!"</p>
+                            <br>
+                            <a href="/trivia-game" class="btn btn-primary">Go!</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" style="margin-top: 5%;">
+                    <div class="card text-center mb-3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="text-center flex-grow-1">Q & A</h5>
+                            <a [routerLink]="['/list-trivia']"><i class="fa-solid fa-gear"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                "Show your knowledge in this exciting question and answer game!"</p>
+                            <br>
+                            <a href="/trivia-game" class="btn btn-primary">Go!</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-            <h5 style="text-align: start; margin-top: 10px;" *ngIf="listActivities.length == 0">No hay products para mostrar</h5>
         </div>
     </div>
 </div>
