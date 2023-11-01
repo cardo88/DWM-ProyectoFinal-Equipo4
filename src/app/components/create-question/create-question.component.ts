@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,6 +11,8 @@ import { CreateQuestionService } from '../../services/create-question.service';
     styleUrls: ['./create-question.component.css']
 })
 export class CreateQuestionComponent implements OnInit {
+
+    @Output() myEvent = new EventEmitter<string>();
 
     isFormValid: boolean = false;
     triviaForm: FormGroup;
@@ -52,4 +54,28 @@ export class CreateQuestionComponent implements OnInit {
             this.router.navigate(['/list-trivia']);
         })
     }
+
+    // callParentMethod() {
+    //     if (this.isFormValid) {
+    //         const formData = this.triviaForm.value;
+    //         this.myEvent.emit(formData);
+    //     }
+    // }
+
+    updateQuestion() {
+        if (this.id !== null) {
+            // Obtener la versión anterior de la pregunta
+            this._createQuestionService.getQuestion(this.id).subscribe(oldQuestion => {
+                const updatedQuestion: Questions = {
+                    question: this.triviaForm.get('question')?.value,
+                    options: this.triviaForm.get('options')?.value,
+                    correctAnswer: this.triviaForm.get('correctAnswer')?.value,
+                }
+            });
+            this._createQuestionService.deleteQuestion(this.id).subscribe(() => {
+                // Redirigir a la lista de preguntas u otra acción
+                this.router.navigate(['/list-trivia']);
+            });
+        }
+    }    
 }

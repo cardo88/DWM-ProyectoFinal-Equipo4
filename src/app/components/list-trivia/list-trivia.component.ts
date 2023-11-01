@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Questions } from 'src/app/models/trivia-game';
 import { CreateQuestionService } from 'src/app/services/create-question.service';
+import { CreateQuestionComponent } from 'src/app/components/create-question/create-question.component';
 
 @Component({
     selector: 'app-list-trivia',
@@ -14,7 +15,7 @@ export class ListTriviaComponent implements OnInit {
     listQuestions: Questions[] = [];
 
     constructor(
-        private _createQuestionService: CreateQuestionService, 
+        private _createQuestionService: CreateQuestionService,
         private toastr: ToastrService,
         private router: Router
         ) { }

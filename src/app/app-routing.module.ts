@@ -5,11 +5,13 @@ import { ListActivitiesComponent } from './components/list-activities/list-activ
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
 import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
+import { UpdateQuestionComponent } from './components/update-question/update-question.component';
 
 
 const routes: Routes = [ 
     { path: 'list-activities', component: ListActivitiesComponent },
     { path: 'create-question', component: CreateQuestionComponent },
+    { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'list-trivia', component: ListTriviaComponent },
     { path: '**', redirectTo: 'list-activities', pathMatch: 'full' }

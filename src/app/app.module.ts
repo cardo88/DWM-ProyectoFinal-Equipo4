@@ -17,6 +17,7 @@ import { ListActivitiesComponent } from './components/list-activities/list-activ
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
 import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
+import { UpdateQuestionComponent } from './components/update-question/update-question.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ListTriviaComponent } from './components/list-trivia/list-trivia.compon
         ListTriviaComponent,
         CreateQuestionComponent,
         TriviaGameComponent,
+        UpdateQuestionComponent,
     ],
     imports: [
         BrowserModule,
