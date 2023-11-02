@@ -7,7 +7,6 @@ import { TriviaGameComponent } from './components/trivia-game/trivia-game.compon
 import { PlayerJoinComponent } from './components/player-join/player-join.component';
 import { PlayerWaitComponent } from './components/player-wait/player-wait.component';
 import { PlayerActivityComponent } from './components/player-activity/player-activity.component';
-import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
 import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
 import { UpdateQuestionComponent } from './components/update-question/update-question.component';
 
