@@ -68,7 +68,7 @@ export class PlayerTimerComponent implements OnInit {
 
   setCircleDasharray() {
     const circleDasharray = (this.calculateTimeFraction() * this.FULL_DASH_ARRAY).toFixed(0) + ' ' + '283';
-    console.log(circleDasharray);
+    // console.log(circleDasharray);
     return circleDasharray;
   }
 

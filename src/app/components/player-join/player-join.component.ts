@@ -20,13 +20,14 @@ export class PlayerJoinComponent {
   ) {
     this.joinForm = this.fb.group({
       nickname: ['', Validators.required],
-      code: ['', [Validators.required,this.validarLongitudCodigo]],
+      code: ['', [Validators.required,this.codeLengthValidate]],
     })
   }
-
-  validarLongitudCodigo(control:any) {
+  //permite en CODE solo ingresar un codigo de hasta 4 digitos.
+  codeLengthValidate(control:any) {
     if (control.value && control.value.length !== 4) {
-      return { 'longitudIncorrecta': true };
+      console.log(control.value);
+      return { 'rightLenght': true };
     }
     return null;
   }
@@ -37,7 +38,7 @@ export class PlayerJoinComponent {
   player_code: string = "";
   room_code: string = "4444"; //codigo ejemplo para aceptar la conexión
 
-  //permite en CODE solo ingresar un codigo de hasta 4 digitos.
+  //permite en CODE solo ingresar un codigo de hasta 4 digitos
   onlyNumbers(event: KeyboardEvent) {
     const pattern = /^[0-9]*$/;
     const inputChar = event.key;

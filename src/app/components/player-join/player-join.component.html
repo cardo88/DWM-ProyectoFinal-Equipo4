@@ -16,7 +16,7 @@
                     <div class="text-danger" *ngIf="joinForm.get('code')?.hasError('required') && joinForm.get('code')?.touched">
                         <span>El Código <strong>es obligatoria</strong></span>
                     </div>
-                    <div class="text-danger" *ngIf="joinForm.get('code')?.hasError('longitudIncorrecta') && joinForm.get('code')?.touched">
+                    <div class="text-danger" *ngIf="joinForm.get('code')?.hasError('rightLenght') && joinForm.get('code')?.touched">
                         <span>El Código debe tener <strong>4 digitos</strong></span>
                     </div>
                 </div>

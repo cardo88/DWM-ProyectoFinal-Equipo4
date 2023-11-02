@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'list-trivia', component: ListTriviaComponent },
-    { path: '**', redirectTo: 'list-activities', pathMatch: 'full' }
+    { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
 ];
 
 @NgModule({
