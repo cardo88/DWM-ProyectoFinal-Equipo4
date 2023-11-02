@@ -13,7 +13,7 @@ export class RoomService {
 
   constructor(private http: HttpClient) { }
 
-  createCodeNumber(room: Room): Observable<any> {
+  createRoom(room: Room): Observable<any> {
     return this.http.post(this.url, room);
   }
 

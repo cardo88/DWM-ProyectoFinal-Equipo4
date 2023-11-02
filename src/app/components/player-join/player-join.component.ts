@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { empty } from 'rxjs';
+import { Room } from '../../models/room';
+import { RoomService } from '../../services/room.service';
 
 @Component({
   selector: 'app-player-join',
@@ -13,18 +16,18 @@ export class PlayerJoinComponent {
 
   joinForm: FormGroup;
   constructor(private fb: FormBuilder,
-    // private router: Router,
+     private router: Router,
     // private toastr: ToastrService,
-    // private _productService: ProductService,
+     private _roomservice: RoomService,
     // private aRouter: ActivatedRoute
   ) {
     this.joinForm = this.fb.group({
       nickname: ['', Validators.required],
-      code: ['', [Validators.required,this.codeLengthValidate]],
+      code: ['', [Validators.required, this.codeLengthValidate]],
     })
   }
   //permite en CODE solo ingresar un codigo de hasta 4 digitos.
-  codeLengthValidate(control:any) {
+  codeLengthValidate(control: any) {
     if (control.value && control.value.length !== 4) {
       console.log(control.value);
       return { 'rightLenght': true };
@@ -51,6 +54,19 @@ export class PlayerJoinComponent {
 
   joinPlayer() {
 
+  }
+
+  addRoom() {
+    const Room: Room = {
+      codeNumber: this.player_nickname,
+      propousalId: "65441fe0a3351d48e0c073cf",
+    }
+
+    console.log(Room);
+    this._roomservice.createRoom(Room).subscribe(data => {
+      this.toastr.success('La pregunta fue registrado con exito!', 'La pregunta fue Registrado!');
+      this.router.navigate(['/player-join']);
+    })
   }
 
 
