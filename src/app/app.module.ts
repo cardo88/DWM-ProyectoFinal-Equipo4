@@ -13,11 +13,15 @@ import { RouterModule } from '@angular/router';
 //Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
-import { CreateQuestionComponent } from './components/create-question/create-question.component';
-import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
-import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
-import { UpdateQuestionComponent } from './components/update-question/update-question.component';
+import { ListActivitiesComponent } from './components/activities/list-activities/list-activities.component';
+import { CreateQuestionComponent } from './components/activities/questions/create-question/create-question.component';
+import { TriviaGameComponent } from './components/activities/questions/trivia-game/trivia-game.component';
+import { ListTriviaComponent } from './components/activities/questions/list-trivia/list-trivia.component';
+import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
+import { CreateWordComponent } from './components/activities/hangman/create-word/create-word.component';
+import { WordsListComponent } from './components/activities/hangman/words-list/words-list.component';
+import { UpdateWordsComponent } from './components/activities/hangman/update-words/update-words.component';
+import { HangmanGameComponent } from './components/activities/hangman/hangman-game/hangman-game.component';
 
 
 @NgModule({
@@ -28,6 +32,10 @@ import { UpdateQuestionComponent } from './components/update-question/update-que
         CreateQuestionComponent,
         TriviaGameComponent,
         UpdateQuestionComponent,
+        CreateWordComponent,
+        WordsListComponent,
+        UpdateWordsComponent,
+        HangmanGameComponent,
     ],
     imports: [
         BrowserModule,

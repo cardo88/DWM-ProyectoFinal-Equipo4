@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListActivitiesComponent } from './components/list-activities/list-activities.component'
-import { CreateQuestionComponent } from './components/create-question/create-question.component';
-import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
-import { ListTriviaComponent } from './components/list-trivia/list-trivia.component';
-import { UpdateQuestionComponent } from './components/update-question/update-question.component';
+import { ListActivitiesComponent } from './components/activities/list-activities/list-activities.component'
+import { CreateQuestionComponent } from './components/activities/questions/create-question/create-question.component';
+import { TriviaGameComponent } from './components/activities/questions/trivia-game/trivia-game.component';
+import { ListTriviaComponent } from './components/activities/questions/list-trivia/list-trivia.component';
+import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
 
 
 const routes: Routes = [ 

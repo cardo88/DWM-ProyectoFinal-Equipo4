@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CreateQuestionService } from '../../services/create-question.service'
+import { CreateQuestionService } from '../../../services/create-question.service'
 import { Questions } from 'src/app/models/trivia-game';
 
 @Component({
