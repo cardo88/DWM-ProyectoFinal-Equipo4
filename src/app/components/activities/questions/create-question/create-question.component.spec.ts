@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TriviaGameComponent } from './create-question.component';
+import { TriviaGameComponent } from '../trivia-game/trivia-game.component';
 
 describe('TriviaGameComponent', () => {
   let component: TriviaGameComponent;
