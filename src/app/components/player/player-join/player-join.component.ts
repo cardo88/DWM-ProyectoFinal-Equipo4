@@ -37,7 +37,6 @@ export class PlayerJoinComponent {
   //permite en CODE solo ingresar un codigo de hasta 4 digitos.
   codeLengthValidate(control: any) {
     if (control.value && control.value.length !== 4) {
-      console.log(control.value);
       return { 'rightLenght': true };
     }
     return null;
@@ -59,18 +58,16 @@ export class PlayerJoinComponent {
 
 
   joinPlayer() {
-    const newRoom: Room = {
-      codeNumber: this.codeNumber,
-      propousalId: this.propousalId,
-    }
-
-    console.log(newRoom);
-    this._roomservice.createRoom(newRoom).subscribe(data => {
-      this.toastr.success('Room registrada con exito!', 'Successful!');
-      this.router.navigate(['/player-join']);
-    })
-
-
+    this._roomservice.getCodeNumber(this.player_code).subscribe(
+      data => {
+        if (data.length === 0) {
+          this.toastr.error('No existe sala con ese código', 'Error');
+        } else {
+          this.toastr.success('Ingreso a la sala exitoso!', '¡Éxito!');
+          this.router.navigate(['/player-wait']);
+        }
+      }
+    );
   }
 
 
