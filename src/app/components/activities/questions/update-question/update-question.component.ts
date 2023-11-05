@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Questions } from '../../models/trivia-game';
-import { CreateQuestionService } from '../../services/create-question.service';
+import { Questions } from '../../../../models/trivia-game';
+import { CreateQuestionService } from '../../../../services/create-question.service';
 
 
 @Component({
@@ -39,29 +39,47 @@ export class UpdateQuestionComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const id: any = this.aRouter.snapshot.params['id'];
-        this.getQuestion(id);
+        this.updateQuestion();
     }
 
     getQuestion(id: string) {
         this._createQuestionService.getQuestion(id).subscribe(data => {
-            console.log('data: ', data);
             this.question = data;
         });
     }
 
     updateQuestion() {
-        const id: any = this.aRouter.snapshot.params['id'];
-        this._createQuestionService.getQuestion(id).subscribe(data => {
-            console.log('data: ', data);
-            this.question = data;
-    
-            // Set the form values when the data is available
-            this.triviaForm.setValue({
-                question: data.question,
-                options: data.options,
-                correctAnswer: data.correctAnswer,
+        if (this.id !== null) {
+            this._createQuestionService.getQuestion(this.id).subscribe(data => {
+                this.triviaForm.setValue({
+                    question: data.question,
+                    options: data.options,
+                    correctAnswer: data.correctAnswer,
+                });
             });
-        });
-    }    
+        }
+    }
+
+    saveQuestion() {
+        if (this.id !== null) {
+            const updatedData = {
+                question: this.triviaForm.get('question')?.value,
+                options: this.triviaForm.get('options')?.value,
+                correctAnswer: this.triviaForm.get('correctAnswer')?.value,
+            };
+
+            this._createQuestionService.updateQuestion(this.id, updatedData).subscribe(response => {
+                this.toastr.success('Question updated successfully');
+                this.router.navigate(['/list-trivia']);
+            });
+        }
+    }
 }
+
+
+
+
+
+
+
+

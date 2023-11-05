@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="titulo text-center flex-grow-1">Questions</span>
+                <a [routerLink]="['/create-question']" class="ml-auto"><i class="fa-solid fa-plus" style="font-size: 2rem;"></i></a>
+            </div>
+
+            <!-- Always display the table header -->
+            <div class="custom-table mt-3">
+                <div class="table-header">
+                    <div class="table-cell">Name</div>
+                </div>
+                <div *ngIf="isLoading" class="loading-container">
+                    <i class="fa-solid fa-question" style="font-size: 2rem;"></i>
+                </div>
+                <ng-container *ngIf="!isLoading">
+                    <div *ngIf="noProductsFound">
+                        <h5 class="no-products-message">No hay productos para mostrar</h5>
+                    </div>
+                    <div class="table-body">
+                        <div *ngFor="let question of listQuestions" class="table-row">
+                            <div class="table-cell">
+                                <div>
+                                    {{ question.question }}
+                                </div>
+                            </div>
+                            <div class="table-cell actions">
+                                <i [routerLink]="['/edit-question', question._id]" class="fas fa-edit text-primary"></i>
+                                <i (click)="deleteProduct(question._id)" class="fas fa-trash text-danger ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div><br><a [routerLink]="['/list-question']" class="ml-auto"><i class="fa-solid fa-arrow-left-long icon-rojo" style="font-size: 2rem;"></i></a></div>
+        </div>
+    </div>
+</div>
