@@ -9,7 +9,7 @@ import { Room } from '../models/room';
 
 export class RoomService {
 
-  private url = 'http://localhost:4000/api/room/';
+  private url = 'http://localhost:4000/api/rooms/';
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +24,10 @@ export class RoomService {
   deleteRoom(id: string): Observable<any> {
     return this.http.delete(this.url + id);
   }
+
+  getRooms(): Observable<any> {
+    console.log('entramo');
+    return this.http.get(this.url);
+}
 
 }

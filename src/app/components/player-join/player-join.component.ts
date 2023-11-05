@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { empty } from 'rxjs';
 import { Room } from '../../models/room';
 import { RoomService } from '../../services/room.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-player-join',
@@ -16,16 +17,23 @@ export class PlayerJoinComponent {
 
   joinForm: FormGroup;
   constructor(private fb: FormBuilder,
-     private router: Router,
-    // private toastr: ToastrService,
-     private _roomservice: RoomService,
+    private router: Router,
+    private toastr: ToastrService,
+    private _roomservice: RoomService,
     // private aRouter: ActivatedRoute
   ) {
     this.joinForm = this.fb.group({
       nickname: ['', Validators.required],
       code: ['', [Validators.required, this.codeLengthValidate]],
     })
+    //=start============================= Codigo Temporal===================================
+    this.addRoomForm = this.fb.group({
+      propousalId: ['', Validators.required],
+      codeNumber: ['', Validators.required],
+    })
+    //=end============================== Codigo Temporal===================================
   }
+
   //permite en CODE solo ingresar un codigo de hasta 4 digitos.
   codeLengthValidate(control: any) {
     if (control.value && control.value.length !== 4) {
@@ -35,11 +43,9 @@ export class PlayerJoinComponent {
     return null;
   }
 
-
-
+  
   player_nickname: string = "";
   player_code: string = "";
-  room_code: string = "4444"; //codigo ejemplo para aceptar la conexión
 
   //permite en CODE solo ingresar un codigo de hasta 4 digitos
   onlyNumbers(event: KeyboardEvent) {
@@ -53,21 +59,40 @@ export class PlayerJoinComponent {
 
 
   joinPlayer() {
+    const newRoom: Room = {
+      codeNumber: this.codeNumber,
+      propousalId: this.propousalId,
+    }
+
+    console.log(newRoom);
+    this._roomservice.createRoom(newRoom).subscribe(data => {
+      this.toastr.success('Room registrada con exito!', 'Successful!');
+      this.router.navigate(['/player-join']);
+    })
+
 
   }
 
+
+
+
+  //=start============================= Codigo Temporal===================================
+  titulo2 = "TEMPORAL | crear una room | TEMPORAL"
+  addRoomForm: FormGroup;
+  propousalId: string = "";
+  codeNumber: string = "";
   addRoom() {
-    const Room: Room = {
-      codeNumber: this.player_nickname,
-      propousalId: "65441fe0a3351d48e0c073cf",
+    const newRoom: Room = {
+      codeNumber: this.codeNumber,
+      propousalId: this.propousalId,
     }
 
-    console.log(Room);
-    this._roomservice.createRoom(Room).subscribe(data => {
-      this.toastr.success('La pregunta fue registrado con exito!', 'La pregunta fue Registrado!');
+    console.log(newRoom);
+    this._roomservice.createRoom(newRoom).subscribe(data => {
+      this.toastr.success('Room registrada con exito!', 'Successful!');
       this.router.navigate(['/player-join']);
     })
   }
-
+  //=end============================== Codigo Temporal===================================
 
 }
