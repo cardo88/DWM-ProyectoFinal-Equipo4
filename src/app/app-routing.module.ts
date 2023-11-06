@@ -7,6 +7,7 @@ import { TriviaGameComponent } from './components/activities/questions/trivia-ga
 import { PlayerJoinComponent } from './components/player/player-join/player-join.component';
 import { PlayerWaitComponent } from './components/player/player-wait/player-wait.component';
 import { PlayerActivityComponent } from './components/player/player-activity/player-activity.component';
+import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
 import { ListTriviaComponent } from './components/activities/questions/list-trivia/list-trivia.component';
 import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'player-activity', component: PlayerActivityComponent },
     { path: 'player-join', component: PlayerJoinComponent },
     { path: 'player-wait', component: PlayerWaitComponent },
+    { path: 'player-room/:room', component: PlayerCommonComponent},
     { path: 'list-activities', component: ListActivitiesComponent },
     { path: 'create-question', component: CreateQuestionComponent },
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
