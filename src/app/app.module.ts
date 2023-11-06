@@ -29,6 +29,8 @@ import { BemVindoComponent } from './components/bem-vindo/bem-vindo.component';
 import { PlayerVoteComponent } from './components/player/player-vote/player-vote.component';
 import { PlayerActivityComponent } from './components/player/player-activity/player-activity.component';
 import { PlayerTimerComponent } from './components/player/player-timer/player-timer.component';
+import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
+import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +50,8 @@ import { PlayerTimerComponent } from './components/player/player-timer/player-ti
         WordsListComponent,
         UpdateWordsComponent,
         HangmanGameComponent,
+        ProposalsComponent,
+        ProposalDetailsComponent,
     ],
     imports: [
         BrowserModule,
