@@ -1,0 +1,16 @@
+<div>
+    <h2>Create Proposal</h2>
+    <form (submit)="saveProposal()">
+        <div>
+            <label for="proposalName">Proposal Name:</label>
+            <input id="proposalName" [(ngModel)]="proposalName" name="proposalName" required>
+        </div>
+        <div class="form-group">
+            <label for="selectedActivities">Select Activities:</label>
+            <select id="selectedActivities" [(ngModel)]="selectedActivities" name="selectedActivities" multiple>
+                <option *ngFor="let activity of activities" [value]="activity.id">{{ activity.name }}</option>
+            </select>
+        </div>
+        <button type="submit">Save Proposal</button>
+    </form>
+</div>

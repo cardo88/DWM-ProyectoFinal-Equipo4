@@ -23,4 +23,8 @@ export class ProposalService {
     return this.http.delete(this.url + id);
   }
 
+  saveProposal(proposalData: any): Observable<any> {
+    return this.http.post(this.url, proposalData);
+  }
+
 }

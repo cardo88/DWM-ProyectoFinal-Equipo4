@@ -11,7 +11,8 @@ import { PlayerCommonComponent } from './components/player/player-common/player-
 import { ListTriviaComponent } from './components/activities/questions/list-trivia/list-trivia.component';
 import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
-
+import { NewRoomComponent } from './components/screen/new-room/new-room.component';
+import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 
 
 const routes: Routes = [ 
@@ -25,6 +26,8 @@ const routes: Routes = [
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'list-trivia', component: ListTriviaComponent },
     { path: 'proposals/:id', component: ProposalDetailsComponent },
+    { path: '/new-room', component: NewRoomComponent},
+    { path: '/create-proposal', component: CreateProposalComponent},
     { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
 ];
 
