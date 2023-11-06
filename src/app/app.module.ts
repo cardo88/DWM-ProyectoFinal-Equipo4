@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,12 @@ import { CreateActivityComponent } from './components/create-activity/create-act
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { TriviaGameComponent } from './components/trivia-game/trivia-game.component';
+import { LoginComponent } from './components/login/login.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+
+import { AuthInterceptor } from './auth.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
     declarations: [
@@ -24,6 +30,9 @@ import { TriviaGameComponent } from './components/trivia-game/trivia-game.compon
         CreateActivityComponent,
         CreateQuestionComponent,
         TriviaGameComponent,
+        LoginComponent,
+        SigninComponent,
+        InicioComponent,
     ],
     imports: [
         BrowserModule,
@@ -34,7 +43,14 @@ import { TriviaGameComponent } from './components/trivia-game/trivia-game.compon
         ToastrModule.forRoot(),
         ReactiveFormsModule
     ],
-    providers: [ ],
+    providers: [
+        CookieService,
+        {
+                        provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+          },
+     ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
