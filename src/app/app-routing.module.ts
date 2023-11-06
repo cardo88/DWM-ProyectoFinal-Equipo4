@@ -10,6 +10,7 @@ import { PlayerActivityComponent } from './components/player/player-activity/pla
 import { ListTriviaComponent } from './components/activities/questions/list-trivia/list-trivia.component';
 import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
+import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 
 
 
