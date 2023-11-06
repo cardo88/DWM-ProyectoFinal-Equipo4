@@ -10,6 +10,9 @@ import { PlayerActivityComponent } from './components/player/player-activity/pla
 import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
 import { ListTriviaComponent } from './components/activities/questions/list-trivia/list-trivia.component';
 import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
+import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
+import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
+
 
 
 const routes: Routes = [ 
@@ -22,6 +25,8 @@ const routes: Routes = [
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'list-trivia', component: ListTriviaComponent },
+    { path: 'list-proposal', component: ProposalsComponent},
+    { path: 'proposals/:id', component: ProposalDetailsComponent },
     { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
 ];
 

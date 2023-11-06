@@ -30,6 +30,8 @@ import { PlayerVoteComponent } from './components/player/player-vote/player-vote
 import { PlayerActivityComponent } from './components/player/player-activity/player-activity.component';
 import { PlayerTimerComponent } from './components/player/player-timer/player-timer.component';
 import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
+import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
+import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +52,8 @@ import { PlayerCommonComponent } from './components/player/player-common/player-
         UpdateWordsComponent,
         HangmanGameComponent,
         PlayerCommonComponent,
+        ProposalsComponent,
+        ProposalDetailsComponent,
     ],
     imports: [
         BrowserModule,
