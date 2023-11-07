@@ -17,10 +17,7 @@ export class CreateProposalComponent implements OnInit {
   constructor(private proposalService: ProposalService, private router: Router) {}
 
   ngOnInit(): void {
-    //Tengo que traerme todas las actividades no propuestas como hago???????????????????
-    this.proposalService.getProposals().subscribe((data: any) => {
-      this.activities = data;
-    });
+    //Tengo que traerme todas las actividades
   }
 
   saveProposal() {
