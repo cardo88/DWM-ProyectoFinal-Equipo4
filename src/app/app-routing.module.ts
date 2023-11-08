@@ -26,8 +26,8 @@ const routes: Routes = [
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'list-trivia', component: ListTriviaComponent },
     { path: 'proposals/:id', component: ProposalDetailsComponent },
-    { path: '/new-room', component: NewRoomComponent},
-    { path: '/create-proposal', component: CreateProposalComponent},
+    { path: 'new-room', component: NewRoomComponent},
+    { path: 'create-proposal', component: CreateProposalComponent},
     { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
 ];
 

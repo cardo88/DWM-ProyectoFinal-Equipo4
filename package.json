@@ -24,7 +24,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.7.1",
     "ngx-bootstrap": "^11.0.2",
-    "ngx-cookie-service": "^16.0.2",
+    "ngx-cookie-service": "^16.1.0",
     "ngx-socket-io": "^4.5.1",
     "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
