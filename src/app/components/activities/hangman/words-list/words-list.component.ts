@@ -55,7 +55,7 @@ export class WordsListComponent implements OnInit, OnDestroy {
         });
     }
 
-    deleteProduct(id: any) {
+    deleteWord(id: any) {
         this._hangmanService.deleteWord(id).subscribe(data => {
             this.toastr.error('El producto fue eliminado con éxito', 'Producto Eliminado');
             this.getWords();

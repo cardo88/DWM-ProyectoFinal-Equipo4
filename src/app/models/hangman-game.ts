@@ -1,11 +1,11 @@
 export class Words {
     _id?: number;
     word: string;
-    correctAnswer: string;
+    correctWord: string;
 
-    constructor(word: string, correctAnswer: string){
+    constructor(word: string, correctWord: string){
         this.word = word;
-        this.correctAnswer = correctAnswer;
+        this.correctWord = correctWord;
     }
 }
 

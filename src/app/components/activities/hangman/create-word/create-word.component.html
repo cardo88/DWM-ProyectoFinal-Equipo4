@@ -12,10 +12,10 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="text" formControlName="correctAnswer" class="form-control form-control-lg"
+                    <input type="text" formControlName="correctWord" class="form-control form-control-lg"
                         placeholder="Correct Answer">
                     <div class="text-danger"
-                        *ngIf="hangmanForm.get('correctAnswer')?.hasError('required') && hangmanForm.get('correctAnswer')?.touched">
+                        *ngIf="hangmanForm.get('correctWord')?.hasError('required') && hangmanForm.get('correctWord')?.touched">
                         <span>The correct answer <strong>is required</strong></span>
                     </div>
                 </div>

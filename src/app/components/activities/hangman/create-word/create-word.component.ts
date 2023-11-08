@@ -25,7 +25,7 @@ export class CreateWordComponent implements OnInit {
         private aRouter: ActivatedRoute) {
         this.hangmanForm = this.fb.group({
             word: ['', Validators.required],
-            correctAnswer: ['', Validators.required],
+            correctWord: ['', Validators.required],
         })
         this.id = this.aRouter.snapshot.paramMap.get('id');
 
@@ -42,12 +42,12 @@ export class CreateWordComponent implements OnInit {
     addWord() {
         const WORD: Words = {
             word: this.hangmanForm.get('word')?.value,
-            correctAnswer: this.hangmanForm.get('correctAnswer')?.value,
+            correctWord: this.hangmanForm.get('correctWord')?.value,
         }
 
         console.log(WORD);
         this._hangmanService.saveWord(WORD).subscribe(data => {
-            this.toastr.success('La palabra fue registrado con exito!', 'La palabra fue Registrado!');
+            this.toastr.success('La palabra fue registrada con exito!', 'La palabra fue Registrada!');
             this.router.navigate(['/words-list']);
         })
     }

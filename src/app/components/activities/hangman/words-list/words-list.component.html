@@ -26,15 +26,15 @@
                                 </div>
                             </div>
                             <div class="table-cell actions">
-                                <i [routerLink]="['/edit-question', word._id]" class="fas fa-edit text-primary"></i>
-                                <i (click)="deleteProduct(word._id)" class="fas fa-trash text-danger ml-2"></i>
+                                <i [routerLink]="['/edit-word', word._id]" class="fas fa-edit text-primary"></i>
+                                <i (click)="deleteWord(word._id)" class="fas fa-trash text-danger ml-2"></i>
                             </div>
                         </div>
                     </div>
                 </ng-container>
             </div>
 
-            <div><br><a [routerLink]="['/list-question']" class="ml-auto"><i class="fa-solid fa-arrow-left-long icon-rojo" style="font-size: 2rem;"></i></a></div>
+            <div><br><a [routerLink]="['/list-activities']" class="ml-auto"><i class="fa-solid fa-arrow-left-long icon-rojo" style="font-size: 2rem;"></i></a></div>
         </div>
     </div>
 </div>
