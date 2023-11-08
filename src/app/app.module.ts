@@ -23,6 +23,15 @@ import { WordsListComponent } from './components/activities/hangman/words-list/w
 import { UpdateWordsComponent } from './components/activities/hangman/update-words/update-words.component';
 import { HangmanGameComponent } from './components/activities/hangman/hangman-game/hangman-game.component';
 
+import { PlayerJoinComponent } from './components/player/player-join/player-join.component';
+import { PlayerWaitComponent } from './components/player/player-wait/player-wait.component';
+import { BemVindoComponent } from './components/bem-vindo/bem-vindo.component';
+import { PlayerVoteComponent } from './components/player/player-vote/player-vote.component';
+import { PlayerActivityComponent } from './components/player/player-activity/player-activity.component';
+import { PlayerTimerComponent } from './components/player/player-timer/player-timer.component';
+import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
+import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
+import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 
 @NgModule({
     declarations: [
@@ -31,11 +40,20 @@ import { HangmanGameComponent } from './components/activities/hangman/hangman-ga
         ListTriviaComponent,
         CreateQuestionComponent,
         TriviaGameComponent,
+        PlayerJoinComponent,
+        PlayerWaitComponent,
+        BemVindoComponent,
+        PlayerVoteComponent,
+        PlayerActivityComponent,
+        PlayerTimerComponent,
         UpdateQuestionComponent,
         CreateWordComponent,
         WordsListComponent,
         UpdateWordsComponent,
         HangmanGameComponent,
+        PlayerCommonComponent,
+        ProposalsComponent,
+        ProposalDetailsComponent,
     ],
     imports: [
         BrowserModule,
