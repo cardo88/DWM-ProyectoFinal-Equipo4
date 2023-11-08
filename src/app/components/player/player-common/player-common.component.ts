@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { SocketWebService } from '../../../services/socket-web.service';
+import { io } from 'socket.io-client';
+import { ElementRef, ViewChild } from '@angular/core';
+
 
 
 @Component({
@@ -9,16 +13,22 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./player-common.component.css']
 })
 export class PlayerCommonComponent implements OnInit {
+  mensaje: string = '';
 
-  room: any;
-  constructor(
-    private route: ActivatedRoute,
-    private cookieService: CookieService,
+  constructor(private socketService: SocketWebService) {}
 
-  ) { }
+  ngOnInit() {
+    const socket = this.socketService.getSocket();
 
-  ngOnInit(): void {
-    this.room = this.route.snapshot.paramMap.get('room');
-    this.cookieService.set('room', this.room)
+    socket.on('evento', (data) => {
+      console.log('Mensaje recibido:', data);
+      this.mensaje = data.mensaje;
+    });
+  }
+
+  enviarMensaje() {
+    const socket = this.socketService.getSocket();
+    socket.emit('evento', { mensaje: 'Hola desde Angular' });
   }
 }
+

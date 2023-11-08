@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Room } from '../../../models/room';
 import { RoomService } from '../../../services/room.service';
 import { ToastrService } from 'ngx-toastr';
+import { SocketWebService } from '../../../services/socket-web.service';
 
 @Component({
   selector: 'app-player-join',
@@ -19,7 +20,8 @@ export class PlayerJoinComponent {
     private router: Router,
     private toastr: ToastrService,
     private _roomservice: RoomService,
-    // private aRouter: ActivatedRoute
+    private socketService: SocketWebService,
+    private route: ActivatedRoute,
   ) {
     this.joinForm = this.fb.group({
       nickname: ['', Validators.required],
@@ -62,8 +64,11 @@ export class PlayerJoinComponent {
         if (data.length === 0) {
           this.toastr.error('No existe sala con ese código', 'Error');
         } else {
+          const socket = this.socketService.getSocket();
+          const room = this.player_code;
+          socket.emit('joinRoom', { room });
           this.toastr.success('Ingreso a la sala exitoso!', '¡Éxito!');
-          this.router.navigate(['/player-wait']);
+          this.router.navigate(['player-room', room]);
         }
       }
     );
