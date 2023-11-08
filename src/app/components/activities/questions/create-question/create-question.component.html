@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <span class="titulo"> {{ titulo }}</span>
+            <form class="mt-3" [formGroup]="triviaForm" (ngSubmit)="addQuestion()">
+                <div class="mb-3">
+                    <input type="text" formControlName="question" class="form-control form-control-lg"
+                        placeholder="Question">
+                    <div class="text-danger"
+                        *ngIf="triviaForm.get('question')?.hasError('required') && triviaForm.get('question')?.touched">
+                        <span>El nombre del product <strong>es obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" formControlName="options" class="form-control form-control-lg"
+                        placeholder="Options">
+                    <div class="text-danger"
+                        *ngIf="triviaForm.get('options')?.hasError('required') && triviaForm.get('options')?.touched">
+                        <span>La categoria <strong>es obligatoria</strong></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" formControlName="correctAnswer" class="form-control form-control-lg"
+                        placeholder="Correct Answer">
+                    <div class="text-danger"
+                        *ngIf="triviaForm.get('correctAnswer')?.hasError('required') && triviaForm.get('correctAnswer')?.touched">
+                        <span>La ubicacion <strong>es obligatoria</strong></span>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <a [routerLink]="['/list-trivia']" class="ml-auto">
+                        <i class="fa-solid fa-arrow-left-long icon-rojo" style="font-size: 2rem;"></i>
+                    </a>
+                    <a class="ml-auto" href="/list-trivia" (click)="isFormValid ? addQuestion() : false">
+                        <i [ngClass]="(isFormValid == true) ? 'fa-solid fa-check icon-green':'fa-solid fa-check icon-gray'" style="font-size: 2rem;"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

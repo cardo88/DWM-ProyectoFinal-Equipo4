@@ -1,0 +1,3 @@
+<div *ngFor="let proposal of proposals">
+    <a [routerLink]="['/proposals', proposal._id]"><h2>{{ proposal.name }}</h2></a>
+</div>

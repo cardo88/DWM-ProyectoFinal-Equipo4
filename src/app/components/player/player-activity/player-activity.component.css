@@ -1,0 +1,18 @@
+.cont {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-center {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+.thickLine{
+    background-color: #d3d2fb; /* Color gris */
+    display: flex; /* Esto permite alinear los botones horizontalmente */
+    justify-content: space-around; /* Alinea los botones horizontalmente con espacio entre ellos */
+    padding: 10px; /* Añade espacio entre los botones y el renglón */
+}
