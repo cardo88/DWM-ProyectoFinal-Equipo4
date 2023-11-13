@@ -8,6 +8,8 @@ import { ProposalService } from '../../../services/proposal.service';
 })
 export class ProposalsComponent implements OnInit{
 
+  titulo = "Proposals:"
+
   proposals?: any[];
 
   constructor(private proposalService: ProposalService) {}
@@ -17,5 +19,5 @@ export class ProposalsComponent implements OnInit{
       this.proposals = data;
     });
   }
-
+  
 }

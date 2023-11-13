@@ -28,7 +28,7 @@ export class NewRoomComponent implements OnInit {
   }
 
   createActivity() {
-
+    this.router.navigate(['/list-trivia']);
   }
 
 }
