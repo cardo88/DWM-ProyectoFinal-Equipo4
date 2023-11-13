@@ -1,0 +1,25 @@
+.listAct {
+    border-radius: 5px;
+    background-color: #252525;
+    margin-top: 1rem; /* Ajusta según sea necesario */
+}
+
+.listAct ul {
+    list-style: none;
+    padding: 0;
+}
+
+.listAct li {
+    padding: 10px;
+    color: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.listAct li:last-child {
+    border-bottom: none;
+}
+
+.listAct li:hover {
+    background-color: #e9ecef;
+    color: black;
+}

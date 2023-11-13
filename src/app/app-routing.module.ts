@@ -21,6 +21,8 @@ import { HangmanGameComponent } from './components/activities/hangman/hangman-ga
 
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
+import { NewRoomComponent } from './components/screen/new-room/new-room.component';
+import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 
 import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
@@ -50,7 +52,10 @@ const routes: Routes = [
     { path: 'hangman-game', component: HangmanGameComponent },
 
     { path: 'list-proposal', component: ProposalsComponent},
+
     { path: 'proposals/:id', component: ProposalDetailsComponent },
+    { path: 'new-room', component: NewRoomComponent},
+    { path: 'create-proposal', component: CreateProposalComponent},
     { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
 
 ];
