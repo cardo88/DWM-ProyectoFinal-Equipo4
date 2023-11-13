@@ -35,7 +35,7 @@ const routes: Routes = [
     { path: 'list-trivia', component: ListTriviaComponent },
     { path: 'list-proposal', component: ProposalsComponent},
     { path: 'proposals/:id', component: ProposalDetailsComponent },
-    { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
+    { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
 
 ];
 
