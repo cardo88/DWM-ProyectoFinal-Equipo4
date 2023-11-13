@@ -32,6 +32,7 @@ import { PlayerTimerComponent } from './components/player/player-timer/player-ti
 import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
+import { QuestionsModalComponent } from './components/activities/questions/questions-modal/questions-modal.component';
 
 @NgModule({
     declarations: [
@@ -54,6 +55,7 @@ import { ProposalDetailsComponent } from './components/proposals/proposal-detail
         PlayerCommonComponent,
         ProposalsComponent,
         ProposalDetailsComponent,
+        QuestionsModalComponent,
     ],
     imports: [
         BrowserModule,

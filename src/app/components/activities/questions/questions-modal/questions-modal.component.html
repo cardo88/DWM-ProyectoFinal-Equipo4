@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="custom-table mt-3">
+                <div class="table-header">
+                    <div class="table-cell">Name</div>
+                </div>
+
+                <div *ngIf="noProductsFound">
+                    <h5 class="no-products-message">No hay productos para mostrar</h5>
+                </div>
+                <div class="table-body">
+                    <div *ngFor="let question of listQuestions; let i = index" class="table-row">
+                        <div class="table-cell">
+                            <div>
+                                {{ question.question }}
+                            </div>
+                        </div>
+                        <div class="table-cell actions">
+                            <label>
+                                <input type="checkbox" [ngModel]="question.isChecked" (change)="handleChange(question)">
+                                <i class="fas fa-square" *ngIf="!question.isChecked"></i>
+                                <i class="fas fa-check-square" *ngIf="question.isChecked"></i>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

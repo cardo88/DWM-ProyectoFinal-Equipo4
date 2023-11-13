@@ -7,6 +7,7 @@ import { ListTriviaComponent } from './components/activities/questions/list-triv
 import { CreateQuestionComponent } from './components/activities/questions/create-question/create-question.component';
 import { UpdateQuestionComponent } from './components/activities/questions/update-question/update-question.component';
 import { TriviaGameComponent } from './components/activities/questions/trivia-game/trivia-game.component';
+import { QuestionsModalComponent } from './components/activities/questions/questions-modal/questions-modal.component'
 
 import { PlayerJoinComponent } from './components/player/player-join/player-join.component';
 import { PlayerWaitComponent } from './components/player/player-wait/player-wait.component';
@@ -34,7 +35,8 @@ const routes: Routes = [
     { path: 'create-question', component: CreateQuestionComponent },
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
-
+    { path: 'question-modal', component: QuestionsModalComponent },
+    
     { path: 'words-list', component: WordsListComponent },
     { path: 'create-word', component: CreateWordComponent },
     { path: 'edit-word/:id', component: UpdateWordsComponent },
