@@ -16,3 +16,83 @@
     justify-content: space-around; /* Alinea los botones horizontalmente con espacio entre ellos */
     padding: 10px; /* Añade espacio entre los botones y el renglón */
 }
+
+.fas {
+    cursor: pointer;
+    margin-left: 7px;
+}
+
+.custom-table {
+    border: 1px solid #131313;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-header {
+    background-color: #f8f9fa;
+}
+
+.table-body {
+    background-color: #343a40;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #131313;
+    padding: 10px;
+    background-color: #252525;
+}
+
+.table-header {
+    background-color: #353535;
+    border-bottom: 1px solid #131313;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 10px;
+}
+
+.actions {
+    text-align: right;
+}
+
+.icon-rojo {
+    color: red;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Set the height to the viewport height to center vertically */
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    /* Ensure it's above other content */
+}
+
+.no-products-message {
+    font-size: 16px;
+}
+
+.fa-question {
+    /* Establece una animación de rotación */
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

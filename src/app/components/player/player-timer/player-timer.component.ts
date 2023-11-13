@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerTimerComponent implements OnInit {
 
-  FULL_DASH_ARRAY = 283; //Length = 2πr = 2 * π * 45 = 282,6
+  radio :number = 20;
+  FULL_DASH_ARRAY = 2*Math.PI*this.radio; //Length = 2πr = 2 * π * radio
   WARNING_THRESHOLD = 10;
   ALERT_THRESHOLD = 5;
 
@@ -25,7 +26,7 @@ export class PlayerTimerComponent implements OnInit {
     }
   };
 
-  TIME_LIMIT = 60;
+  TIME_LIMIT = 20;
   timePassed = 0;
   timeLeft = this.TIME_LIMIT;
   timerInterval: any = null;
@@ -67,7 +68,7 @@ export class PlayerTimerComponent implements OnInit {
   }
 
   setCircleDasharray() {
-    const circleDasharray = (this.calculateTimeFraction() * this.FULL_DASH_ARRAY).toFixed(0) + ' ' + '283';
+    const circleDasharray = (this.calculateTimeFraction() * this.FULL_DASH_ARRAY).toFixed(0) + ' ' + '125'; //FULL_DASH_ARRAY= 125.6 si el radio es de 20
     // console.log(circleDasharray);
     return circleDasharray;
   }
