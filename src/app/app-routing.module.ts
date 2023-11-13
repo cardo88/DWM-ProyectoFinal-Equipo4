@@ -22,6 +22,8 @@ import { HangmanGameComponent } from './components/activities/hangman/hangman-ga
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 
+import { SigninComponent } from './components/signin/signin.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [ 
     { path: 'player-activity', component: PlayerActivityComponent },
@@ -33,6 +35,11 @@ const routes: Routes = [
 
     { path: 'list-trivia', component: ListTriviaComponent },
     { path: 'create-question', component: CreateQuestionComponent },
+
+    { path: 'trivia-game', component: CreateQuestionComponent },
+    { path: 'signin', component: SigninComponent },
+    { path: 'login', component: LoginComponent },
+
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'question-modal', component: QuestionsModalComponent },
@@ -44,7 +51,8 @@ const routes: Routes = [
 
     { path: 'list-proposal', component: ProposalsComponent},
     { path: 'proposals/:id', component: ProposalDetailsComponent },
-    { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
+    { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
+
 ];
 
 @NgModule({

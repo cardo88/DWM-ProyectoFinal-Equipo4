@@ -4,14 +4,26 @@
             <circle class="base-timer__path-elapsed" cx="50" cy="50" r="20"></circle>
             <path id="base-timer-path-remaining" 
                 [attr.stroke-dasharray]="setCircleDasharray()"
-                style="stroke:pink"
+                style="stroke:blue; z-index: 2;"
                 class="base-timer__path-remaining base-timer__path-remaining.{{remainingPathColor}}" 
                 d="
                     M 50, 50
-                    m -45, 0
-                    a 45,45 0 1,0 90,0
-                    a 45,45 0 1,0 -90,0
+                    m -20, 0
+                    a 20,20 0 1,0 40,0
+                    a 20,20 0 1,0 -40,0
                     "></path>
+                    <!-- 
+                    // Ajusta el radio del círculo que se va desvaneciendo aquí
+                    const radius = 30; // Ajusta el valor del radio según tus necesidades
+                
+                    // Construye la cadena d para el atributo path
+                    const d = `
+                        M 50,50
+                        m -${radius}, 0
+                        a ${radius},${radius} 0 1,0 ${radius * 2},0
+                        a ${radius},${radius} 0 1,0 -${radius * 2},0
+                    `; -->
+
         </g>
     </svg>
     <span id="base-timer-label" class="base-timer__label">{{ formatTime(timeLeft) }}</span>

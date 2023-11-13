@@ -7,12 +7,21 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { RouterModule } from '@angular/router';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { LoginComponent } from './components/login/login.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+
+import { AuthInterceptor } from './auth.interceptor';
+import { CookieService } from 'ngx-cookie-service';
+
 import { ListActivitiesComponent } from './components/activities/list-activities/list-activities.component';
 import { CreateQuestionComponent } from './components/activities/questions/create-question/create-question.component';
 import { TriviaGameComponent } from './components/activities/questions/trivia-game/trivia-game.component';
@@ -41,6 +50,9 @@ import { QuestionsModalComponent } from './components/activities/questions/quest
         ListTriviaComponent,
         CreateQuestionComponent,
         TriviaGameComponent,
+        LoginComponent,
+        SigninComponent,
+        InicioComponent,
         PlayerJoinComponent,
         PlayerWaitComponent,
         BemVindoComponent,
@@ -67,7 +79,14 @@ import { QuestionsModalComponent } from './components/activities/questions/quest
         ToastrModule.forRoot(),
         ReactiveFormsModule
     ],
-    providers: [ ],
+    providers: [
+        CookieService,
+        {
+                        provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+          },
+     ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

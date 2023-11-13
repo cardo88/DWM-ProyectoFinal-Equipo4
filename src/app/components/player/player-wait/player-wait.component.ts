@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-player-wait',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./player-wait.component.css']
 })
 export class PlayerWaitComponent {
-
+  @Input() mensaje = '';
 }
