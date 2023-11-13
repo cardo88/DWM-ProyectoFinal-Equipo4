@@ -1,1 +1,33 @@
-<p>create-word works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <span class="titulo"> {{ titulo }}</span>
+            <form class="mt-3" [formGroup]="hangmanForm" (ngSubmit)="addWord()">
+                <div class="mb-3">
+                    <input type="text" formControlName="word" class="form-control form-control-lg"
+                        placeholder="Word">
+                    <div class="text-danger"
+                        *ngIf="hangmanForm.get('word')?.hasError('required') && hangmanForm.get('word')?.touched">
+                        <span>The word <strong>is required</strong></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" formControlName="correctWord" class="form-control form-control-lg"
+                        placeholder="Correct Answer">
+                    <div class="text-danger"
+                        *ngIf="hangmanForm.get('correctWord')?.hasError('required') && hangmanForm.get('correctWord')?.touched">
+                        <span>The correct answer <strong>is required</strong></span>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <a [routerLink]="['/words-list']" class="ml-auto">
+                        <i class="fa-solid fa-arrow-left-long icon-rojo" style="font-size: 2rem;"></i>
+                    </a>
+                    <a class="ml-auto" href="/words-list" (click)="isFormValid ? addWord() : false">
+                        <i [ngClass]="(isFormValid == true) ? 'fa-solid fa-check icon-green':'fa-solid fa-check icon-gray'" style="font-size: 2rem;"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

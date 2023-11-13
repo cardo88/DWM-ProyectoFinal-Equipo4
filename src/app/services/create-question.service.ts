@@ -32,4 +32,11 @@ export class CreateQuestionService {
     updateQuestion(id: string, question: Questions): Observable<any> {
         return this.http.put(this.url + id, question);
     }
+
+    checkbox(id: number, isChecked: boolean): Observable<any> {
+        const url = `${this.url}${id}`;
+        const body = { isChecked };
+
+        return this.http.put(url, body);
+    }
 }
