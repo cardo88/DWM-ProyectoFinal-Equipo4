@@ -41,6 +41,8 @@ import { PlayerTimerComponent } from './components/player/player-timer/player-ti
 import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
+import { NewRoomComponent } from './components/screen/new-room/new-room.component';
+import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 
 @NgModule({
     declarations: [
@@ -66,6 +68,8 @@ import { ProposalDetailsComponent } from './components/proposals/proposal-detail
         PlayerCommonComponent,
         ProposalsComponent,
         ProposalDetailsComponent,
+        NewRoomComponent,
+        CreateProposalComponent,
     ],
     imports: [
         BrowserModule,

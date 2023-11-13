@@ -1,0 +1,48 @@
+.titulo {
+    font-size: 1.5rem;
+}
+
+.listProp {
+    border-radius: 5px;
+    background-color: #252525;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.proposal-title {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: left;
+}
+
+.proposal-title:hover {
+    background-color: #e9ecef;
+    color: black;
+}
+
+.proposal-title:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.proposal-title:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.table-row:hover {
+    cursor: pointer;
+}
+

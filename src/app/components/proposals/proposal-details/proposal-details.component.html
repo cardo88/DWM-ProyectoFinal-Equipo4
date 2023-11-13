@@ -1,7 +1,9 @@
 <div *ngIf="proposal">
     <h2>{{ proposal.name }}</h2>
     <h3>Activities:</h3>
-    <ul>
-        <li *ngFor="let activity of proposal.activities">{{ activity.name }}</li>
-    </ul>
+    <div class="listAct">
+        <ul>
+            <li *ngFor="let activity of proposal.activities">{{ activity.name }}</li>
+        </ul>
+    </div>
 </div>
