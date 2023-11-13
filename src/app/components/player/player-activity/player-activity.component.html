@@ -1,7 +1,36 @@
 <div class="conteiner">
     <div class="row align-items-start">
         <div class="col-9">
-            <app-trivia-game></app-trivia-game>
+            <div class="custom-table mt-3">
+                <div class="table-header">
+                    <div class="table-cell">Actividad</div>
+                </div>
+                <div *ngIf="isLoading" class="loading-container">
+                    <i class="fa-solid fa-question" style="font-size: 2rem;"></i>
+                </div>
+                <ng-container *ngIf="!isLoading">
+                    <div *ngIf="noProductsFound">
+                        <h5 class="no-products-message">No hay productos para mostrar</h5>
+                    </div>
+                    <div class="table-body">
+                        <!-- <div *ngFor="let question of listQuestions" class="table-row"> -->
+                            <div class="table-cell">
+                                <div>
+                                    {{question.question}}
+                                </div>
+                                <div>
+                                    <div *ngFor="let option of question.options" class="table-row">
+                                    {{option}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-cell actions">
+                                <i [routerLink]="['/edit-question', question._id]" class="fas fa-edit text-primary"></i>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </ng-container>
+            </div>
         </div>
         <div class="col-3">
             <app-player-timer></app-player-timer>

@@ -14,6 +14,9 @@ import { ProposalDetailsComponent } from './components/proposals/proposal-detail
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 
+import { SigninComponent } from './components/signin/signin.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 const routes: Routes = [ 
     { path: 'player-activity', component: PlayerActivityComponent },
@@ -22,13 +25,19 @@ const routes: Routes = [
     { path: 'player-room/:room', component: PlayerCommonComponent},
     { path: 'list-activities', component: ListActivitiesComponent },
     { path: 'create-question', component: CreateQuestionComponent },
+
+    { path: 'trivia-game', component: CreateQuestionComponent },
+    { path: 'signin', component: SigninComponent },
+    { path: 'login', component: LoginComponent },
+
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'list-trivia', component: ListTriviaComponent },
     { path: 'proposals/:id', component: ProposalDetailsComponent },
     { path: 'new-room', component: NewRoomComponent},
     { path: 'create-proposal', component: CreateProposalComponent},
-    { path: '**', redirectTo: 'player-wait', pathMatch: 'full' }
+    { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
+
 ];
 
 @NgModule({
