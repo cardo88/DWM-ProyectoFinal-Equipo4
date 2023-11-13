@@ -1,16 +1,7 @@
-<p>player-common works!</p>
-<!-- <p>Room Code: {{room}}</p> -->
-<button (click)="enviarMensaje()">Enviar Mensaje</button>
-<div>{{ mensaje }}</div>
-<!-- <div class="overlay" *ngIf="gameSelected">
-    <div>
-        <nav class="nav nav-pills nav-fill">
-            <a class="nav-link active" aria-current="page" href="#" (click)="closeGame()">
-                Close
-            </a>
-          </nav>
-    </div>
-    <app-player-wait [gameSelected]="gameSelected"></app-player-wait>
-</div> -->
-<app-player-wait></app-player-wait>
-<app-player-activity></app-player-activity>
+
+<div class="overlay" *ngIf="!roomStartPlay">
+    <app-player-wait [mensaje]="mensaje"></app-player-wait>
+</div>
+<div class="overlay" *ngIf="roomStartPlay">
+    <app-player-activity></app-player-activity>
+</div>

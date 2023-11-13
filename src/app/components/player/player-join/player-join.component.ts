@@ -28,10 +28,10 @@ export class PlayerJoinComponent {
       code: ['', [Validators.required, this.codeLengthValidate]],
     })
     //=start============================= Codigo Temporal===================================
-    this.addRoomForm = this.fb.group({
-      propousalId: ['', Validators.required],
-      codeNumber: ['', Validators.required],
-    })
+    // this.addRoomForm = this.fb.group({
+    //   propousalId: ['', Validators.required],
+    //   codeNumber: ['', Validators.required],
+    // })
     //=end============================== Codigo Temporal===================================
   }
 
@@ -79,22 +79,22 @@ export class PlayerJoinComponent {
 
 
   //=start============================= Codigo Temporal===================================
-  titulo2 = "TEMPORAL | crear una room | TEMPORAL"
-  addRoomForm: FormGroup;
-  propousalId: string = "";
-  codeNumber: string = "";
-  addRoom() {
-    const newRoom: Room = {
-      codeNumber: this.codeNumber,
-      propousalId: this.propousalId,
-    }
+  // titulo2 = "TEMPORAL | crear una room | TEMPORAL"
+  // addRoomForm: FormGroup;
+  // propousalId: string = "";
+  // codeNumber: string = "";
+  // addRoom() {
+  //   const newRoom: Room = {
+  //     codeNumber: this.codeNumber,
+  //     propousalId: this.propousalId,
+  //   }
 
-    console.log(newRoom);
-    this._roomservice.createRoom(newRoom).subscribe(data => {
-      this.toastr.success('Room registrada con exito!', 'Successful!');
-      this.router.navigate(['/player-join']);
-    })
-  }
+  //   console.log(newRoom);
+  //   this._roomservice.createRoom(newRoom).subscribe(data => {
+  //     this.toastr.success('Room registrada con exito!', 'Successful!');
+  //     this.router.navigate(['/player-join']);
+  //   })
+  // }
   //=end============================== Codigo Temporal===================================
 
 }

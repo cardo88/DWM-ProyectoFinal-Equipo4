@@ -16,8 +16,9 @@ export class PlayerCommonComponent implements OnInit {
   mensaje: string = '';
   room: string = "";
   nickname: string = "";
+  roomStartPlay: boolean = false;
 
-  constructor(private socketService: SocketWebService) {}
+  constructor(private socketService: SocketWebService) { }
 
   ngOnInit() {
     const socket = this.socketService.getSocket();
@@ -29,16 +30,20 @@ export class PlayerCommonComponent implements OnInit {
       this.nickname = data.nickname;
       this.room = data.room;
     });
-    
+
     socket.on('mensaje', (data) => {
       console.log('mensaje:', data);
       this.mensaje = data.mensaje;
     });
+
+    socket.on('roomStartPlay', (data) => {
+      console.log('roomStartPlay: ' + data.room + '-->' + data.play);
+      //this.room = data.room;
+      this.roomStartPlay = data.play;
+    });
   }
 
-  enviarMensaje() {
-    const socket = this.socketService.getSocket();
-    socket.emit('mensaje', { mensaje: 'Hola desde Angular' });
-  }
+
+
 }
 
