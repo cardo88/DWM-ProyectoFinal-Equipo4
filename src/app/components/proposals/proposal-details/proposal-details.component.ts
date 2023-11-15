@@ -14,11 +14,12 @@ export class ProposalDetailsComponent implements OnInit {
   constructor( private proposalService: ProposalService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const id = params['id'];
-      this.proposalService.getProposalId(id).subscribe((data: any) => {
-        this.proposal = data;
-      });
+      this.route.params.subscribe((params) => {
+        const id = params['id'];
+        this.proposalService.getProposalId(id).subscribe((data: any) => {
+            console.log('Datos de la propuesta:', data);
+            this.proposal = data;
+        });
     });
   }
 
