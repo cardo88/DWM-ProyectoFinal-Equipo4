@@ -1,7 +1,15 @@
-<div *ngIf="proposal">
-    <h2>{{ proposal.name }}</h2>
-    <h3>Activities:</h3>
-    <ul>
-        <li *ngFor="let activity of proposal.activities">{{ activity.name }}</li>
-    </ul>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <div *ngIf="proposal">
+                <h2>{{ proposal.name }}</h2>
+                <h3>Activities:</h3>
+                <div class="listAct">
+                    <ul>
+                        <li *ngFor="let activity of proposal.activities">{{ activity.question }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

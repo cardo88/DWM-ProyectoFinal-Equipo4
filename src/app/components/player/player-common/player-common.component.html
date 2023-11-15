@@ -1,3 +1,7 @@
-<p>player-common works!</p>
-<p>Room Code: {{room}}</p>
-<app-player-wait></app-player-wait>
+
+<div class="overlay" *ngIf="!roomStartPlay">
+    <app-player-wait [mensaje]="mensaje"></app-player-wait>
+</div>
+<div class="overlay" *ngIf="roomStartPlay">
+    <app-player-activity></app-player-activity>
+</div>

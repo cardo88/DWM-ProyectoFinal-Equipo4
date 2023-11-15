@@ -3,6 +3,7 @@ export class Questions {
     question: string;
     options: string[];
     correctAnswer: string;
+    isChecked?: boolean = false;
 
     constructor(question: string, options: string[], correctAnswer: string){
         this.question = question;

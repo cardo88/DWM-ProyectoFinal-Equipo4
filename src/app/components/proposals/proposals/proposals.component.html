@@ -1,3 +1,13 @@
-<div *ngFor="let proposal of proposals">
-    <a [routerLink]="['/proposals', proposal._id]"><h2>{{ proposal.name }}</h2></a>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <span class="titulo"> {{ titulo }}</span>
+            <div class="listProp">
+                <div *ngFor="let proposal of proposals" class="table-row">
+                    <a [routerLink]="['/proposals', proposal._id]" class="proposal-title">{{ proposal.name }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

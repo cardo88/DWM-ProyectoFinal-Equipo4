@@ -77,3 +77,21 @@
         transform: rotate(360deg);
     }
 }
+
+label {
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+}
+
+label i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+    /* Ajusta el tamaño del ícono a tu preferencia */
+}
+
+input[type="checkbox"] {
+    display: none;
+}

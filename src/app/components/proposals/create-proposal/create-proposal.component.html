@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Create Proposal</h2>
+    <form (submit)="saveProposal()">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <label for="proposalName" id="label">Proposal Name:</label>
+                <input id="proposalName" [(ngModel)]="proposalName" name="proposalName" required>
+            </div>
+        </div>
+        <div class="row">
+            <app-questions-modal class="questions-modal-container" (selectedActivities)="handleSelectedActivities($event)"></app-questions-modal>
+        </div>
+        <div class="botones">
+            <button class="boton" (click)="updateActivity()">Add Activities</button>
+            <button type="submit" class="boton" (click)="saveProposal()">Save Proposal</button>
+        </div>
+    </form>
+</div>
