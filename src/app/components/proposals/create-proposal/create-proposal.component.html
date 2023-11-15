@@ -1,25 +1,18 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-            <h2>Create Proposal</h2>
-            <form (submit)="saveProposal()">
-                <div>
-                    <label for="proposalName">Proposal Name:</label>
-                    <input id="proposalName" [(ngModel)]="proposalName" name="proposalName" required>
-                </div>
-                <!-- TODO ESTO SE VAA-->
-                <div class="form-group">
-                    <label for="selectedActivities">Select Activities:</label>
-                    <select id="selectedActivities" [(ngModel)]="selectedActivities" name="selectedActivities" multiple>
-                        <option *ngFor="let activity of activities" [value]="activity.id">{{ activity.name }}</option>
-                    </select>
-                </div>
-                <!---->
-                <div class="botones">
-                    <button class="boton">Add Activities</button>
-                    <button type="submit" class="boton">Save Proposal</button>
-                </div>
-            </form>
+<div class="container">
+    <h2>Create Proposal</h2>
+    <form (submit)="saveProposal()">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <label for="proposalName" id="label">Proposal Name:</label>
+                <input id="proposalName" [(ngModel)]="proposalName" name="proposalName" required>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <app-questions-modal class="questions-modal-container" (selectedActivities)="handleSelectedActivities($event)"></app-questions-modal>
+        </div>
+        <div class="botones">
+            <button class="boton" (click)="updateActivity()">Add Activities</button>
+            <button type="submit" class="boton" (click)="saveProposal()">Save Proposal</button>
+        </div>
+    </form>
 </div>
