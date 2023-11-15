@@ -13,10 +13,9 @@ import { UpdateQuestionComponent } from './components/activities/questions/updat
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 
-
+import { InicioComponent } from './components/inicio/inicio.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
-
 
 const routes: Routes = [ 
     { path: 'player-activity', component: PlayerActivityComponent },
@@ -29,6 +28,7 @@ const routes: Routes = [
     { path: 'trivia-game', component: CreateQuestionComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'inicio', component: InicioComponent},
 
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
