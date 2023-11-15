@@ -15,8 +15,12 @@ export class ProposalService {
     return this.http.get(`${this.url}`);
   }
 
-  getProposalDetails(id: string): Observable<any> {
+  getProposalId(id: number): Observable<any> {
     return this.http.get(`${this.url}/${id}`);
+  }
+
+  getLastProposalId(): Observable<any> {
+    return this.http.get(`${this.url}last-id`);
   }
 
   deleteProposal(id: string): Observable<any> {

@@ -16,7 +16,7 @@ export class ProposalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const id = params['id'];
-      this.proposalService.getProposalDetails(id).subscribe((data: any) => {
+      this.proposalService.getProposalId(id).subscribe((data: any) => {
         this.proposal = data;
       });
     });

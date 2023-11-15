@@ -1,5 +1,7 @@
 .titulo {
     font-size: 1.5rem;
+    display: block;
+    padding-bottom: 20px;
 }
 
 .listProp {
