@@ -8,7 +8,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  AUTH_SERVER: string = 'http://localhost:3000';
+  AUTH_SERVER: string = 'http://localhost:4000';
   authSubject = new BehaviorSubject(false);
 
   constructor(private httpClient: HttpClient) { }

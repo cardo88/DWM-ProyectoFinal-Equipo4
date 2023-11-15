@@ -21,6 +21,8 @@ import { HangmanGameComponent } from './components/activities/hangman/hangman-ga
 
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
+
+import { InicioComponent } from './components/inicio/inicio.component';
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 
@@ -41,6 +43,7 @@ const routes: Routes = [
     { path: 'trivia-game', component: CreateQuestionComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'inicio', component: InicioComponent},
 
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
