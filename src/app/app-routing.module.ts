@@ -28,6 +28,9 @@ import { CreateProposalComponent } from './components/proposals/create-proposal/
 
 import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
+import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
+import { from } from 'rxjs';
+
 
 const routes: Routes = [ 
     { path: 'player-activity', component: PlayerActivityComponent },
@@ -48,6 +51,8 @@ const routes: Routes = [
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'question-modal', component: QuestionsModalComponent },
+    { path: 'questions-for-game', component: QuestionsForGameComponent },
+    
     
     { path: 'words-list', component: WordsListComponent },
     { path: 'create-word', component: CreateWordComponent },

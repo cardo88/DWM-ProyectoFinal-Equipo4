@@ -1,13 +1,18 @@
-<div>
+<div class="row">
+  <div class="col-md-4 mx-auto"> 
+    <div class="card">
     <h2>Iniciar Sesión</h2>
-    <form (ngSubmit)="onLogin()">
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
-  
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
-  
-      <button type="submit">Iniciar Sesión</button>
-    </form>
+      <form (ngSubmit)="onLogin()">
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" required>
+    
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" required>
+    
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
   </div>
+</div>
   
