@@ -42,11 +42,11 @@
     <div class="row align-items-start m-3">
         <div class="col-5"></div>
         <div class="col-2">
-            <button type="button" class="btn btn-info">Siguiente Actividad</button>
+            <button type="button" class="btn btn-info" [disabled]="!bottonSiguiente" (clic)="updateQuestion()">Siguiente Actividad</button>
         </div>
         <div class="col-5"></div>
     </div>
 </div>
 <div class="thickLine">
-    <app-player-vote [question_id]="current_question_id" [room_id]="room_id"></app-player-vote>
+    <app-player-vote [question_id]="question_id" [room_id]="room_id"></app-player-vote>
 </div>
