@@ -39,4 +39,19 @@ export class CreateQuestionService {
 
         return this.http.put(url, body);
     }
+
+    addVotePositive(id: string, room: string): Observable<any> {
+        const body = { room };
+        return this.http.put(`${this.url}${id}/vote/positive`, body);
+    }
+    
+    addVoteNeutral(id: string, room: string): Observable<any> {
+        const body = { room };
+        return this.http.put(`${this.url}${id}/vote/neutral`, body);
+    }
+
+    addVoteNegative(id: string, room: string): Observable<any> {
+        const body = { room };
+        return this.http.put(`${this.url}${id}/vote/negative`, body);
+    }
 }

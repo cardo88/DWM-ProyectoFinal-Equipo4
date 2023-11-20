@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Questions } from 'src/app/models/trivia-game';
 import { CreateQuestionService } from 'src/app/services/create-question.service';
 
@@ -16,6 +16,8 @@ export class PlayerActivityComponent {
   isLoading = true;
   noProductsFound = false;
   question = new Questions("pepe", ["pepe", "pepe"], "pepe");
+  current_question_id : string = "655b308365ba681bcaa1c849";
+  @Input() room_id = "";
 
   myTimerSub!: Subscription;
 
@@ -41,7 +43,7 @@ export class PlayerActivityComponent {
 
   getQuestions() {
     this.isLoading = true;
-    this._createQuestionService.getQuestion("6544483c62b75426a0dc718e").subscribe(data => { //pregunta hardcodeada...
+    this._createQuestionService.getQuestion(this.current_question_id).subscribe(data => { //pregunta hardcodeada...
       this.question = data;
       this.isLoading = false;
 
