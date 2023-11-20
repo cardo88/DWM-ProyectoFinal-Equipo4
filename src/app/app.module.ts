@@ -44,6 +44,7 @@ import { ProposalDetailsComponent } from './components/proposals/proposal-detail
 import { QuestionsModalComponent } from './components/activities/questions/questions-modal/questions-modal.component';
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
+import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
 
 @NgModule({
     declarations: [
@@ -72,6 +73,7 @@ import { CreateProposalComponent } from './components/proposals/create-proposal/
         QuestionsModalComponent,
         NewRoomComponent,
         CreateProposalComponent,
+        QuestionsForGameComponent,
     ],
     imports: [
         BrowserModule,
