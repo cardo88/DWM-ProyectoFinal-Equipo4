@@ -1,3 +1,12 @@
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    color:white;
+}
+
 .listAct {
     border-radius: 5px;
     background-color: #252525;
@@ -21,5 +30,4 @@
 
 .listAct li:hover {
     background-color: #e9ecef;
-    color: black;
 }

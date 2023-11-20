@@ -3,24 +3,31 @@ h2 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-}
-
-form {
-    max-width: 400px;
-    margin: 0 auto;
+    margin-top: 1.5rem;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
+    margin-left: 50px;
 }
 
-input, select {
-    width: 100%;
+input {
+    width: 95%;
     padding: 0.5rem;
-    margin-bottom: 1rem;
     border: 1px solid #ced4da;
     border-radius: 4px;
+    margin-left: 15px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.questions-modal-container {
+    margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto; /* Agrega desplazamiento */
+    max-height: 300px;
 }
 
 .botones {

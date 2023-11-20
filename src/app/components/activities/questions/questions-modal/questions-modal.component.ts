@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Questions } from 'src/app/models/trivia-game';
 import { CreateQuestionService } from 'src/app/services/create-question.service';
@@ -30,6 +30,8 @@ export class QuestionsModalComponent implements OnInit {
         }
     }
 
+    @Output() selectedActivities: EventEmitter<any[]> = new EventEmitter<any[]>();
+
     handleChange(question: Questions) {
         question.isChecked = !question.isChecked;
 
@@ -40,5 +42,8 @@ export class QuestionsModalComponent implements OnInit {
         } else {
             console.error('El _id de la pregunta es undefined');
         }
+
+        // Emite eventos para que CreateProposalComponent pueda rastrear las actividades seleccionadas
+        this.selectedActivities.emit(this.listQuestions.filter(q => q.isChecked));
     }
 }
