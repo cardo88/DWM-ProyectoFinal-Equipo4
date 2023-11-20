@@ -19,7 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
-import { AuthInterceptor } from './auth.interceptor';
+import { AuthInterceptor } from './services/auth.interceptor';
 import { CookieService } from 'ngx-cookie-service';
 
 import { ListActivitiesComponent } from './components/activities/list-activities/list-activities.component';

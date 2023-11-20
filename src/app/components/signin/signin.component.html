@@ -1,13 +1,27 @@
-<div>
-    <h2>Registrarse</h2>
-    <form (ngSubmit)="onSignup()">
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+<div class = "row">
+  <div class="col-md-4 mx-auto">
+    <div class="card">
+      <h2>Registrarse</h2>
+      <form (ngSubmit)="onSignup()">
+
+
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name"  class="form-control" [(ngModel)]="user.name" required autofocus>
+
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" required>
+      
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" required>
+
+        <label for="passwordConfirm">Confirmar Contraseña:</label>
+        <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" [(ngModel)]="user.passwordConfirm" required>
+        
     
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
-  
-      <button type="submit">Registrarse</button>
-    </form>
+        <button type="submit" p="mx-auto" >Registrarse</button>
+      </form>
+    </div>
   </div>
+</div>
   
