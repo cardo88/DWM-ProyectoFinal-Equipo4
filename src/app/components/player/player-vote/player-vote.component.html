@@ -1,13 +1,14 @@
 <div class="container" style="text-align: center;">
     <div class="btn-group" role="group" aria-label="Opciones de Votación">
-        <button type="button" class="btn btn-success" (click)="votar('meGusta')">
+        <button type="button" class="btn btn-success" (click)="votePositive()">
             Me gusta <img class="icon" src="../../../assets/images/like.png">
         </button>
-        <button type="button" class="btn btn-warning" (click)="votar('meDaIgual')">
+        <button type="button" class="btn btn-warning" (click)="voteNeutral()">
             Me da igual <img class="icon" src="../../../assets/images/medaigual.png">
         </button>
-        <button type="button" class="btn btn-danger" (click)="votar('noMeGusta')">
+        <button type="button" class="btn btn-danger" (click)="voteNegative()">
             No me gusta <img class="icon" src="../../../assets/images/dislike.png">
         </button>
     </div>
+    <span>ActividadID:{{question_id}}</span>
 </div>

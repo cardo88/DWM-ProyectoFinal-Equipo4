@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CreateQuestionService } from '../../../services/create-question.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-player-vote',
@@ -7,19 +9,79 @@ import { Component } from '@angular/core';
 })
 export class PlayerVoteComponent {
 
-  totalVotos = 100;
-  votos = {
-    meGusta: 0,
-    meDaIgual: 0,
-    noMeGusta: 0
-  };
+  @Input() question_id = "";
+  @Input() room_id = "";
 
-  votar(opcion: string) {
-    // this.votos[opcion]++;
+  constructor(
+    private toastr: ToastrService,
+    private _createQuestionService: CreateQuestionService) {
+
   }
 
-  // porcentajeVotos() {
-  //   const total = this.votos.meGusta + this.votos.meDaIgual + this.votos.noMeGusta;
-  //   return (total / this.totalVotos) * 100;
-  // }
+  votePositive() {
+    this._createQuestionService.addVotePositive(this.question_id,this.room_id).subscribe(data => {
+      this.toastr.success('Voto +1 :)', 'Votación');
+    })
+  }
+
+  voteNeutral() {
+    this._createQuestionService.addVoteNeutral(this.question_id,this.room_id).subscribe(data => {
+      this.toastr.success('Voto 0 :| ', 'Votación');
+    })
+  }
+
+  voteNegative() {
+    this._createQuestionService.addVoteNegative(this.question_id,this.room_id).subscribe(data => {
+      this.toastr.success('Votado -1 :(', 'Votación');
+    })
+  }
+
 }
+
+
+
+
+
+/*
+
+SE AGREGA A LA TRIVIA-GAME EL ATRIBUTO VOTES DE LA FORMA:
+
+{
+  "question": "TEST VOTE ¿Cuál es el río más largo del mundo?",
+  "options": [
+    "Amazonas",
+    "Nilo",
+    "Mississippi"
+  ],
+  "correctAnswer": "Amazonas",
+  "fechaCreacion": {
+    "$date": "2023-11-03T01:01:56.560Z"
+  },
+  "__v": 0,
+  "isChecked": true,
+  "votes": [
+    {
+      "0001": {
+        "0": 0,
+        "+1": 1,
+        "-1": 1
+      }
+    },
+    {
+      "0002": {
+        "0": 1,
+        "+1": 15,
+        "-1": 3
+      }
+    },
+    {
+      "0003": {
+        "0": 9,
+        "+1": 9,
+        "-1": 9
+      }
+    }
+  ]
+}
+
+*/

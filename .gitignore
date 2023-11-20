@@ -137,3 +137,4 @@ e2e/
 #.vscode
 .DS_Store
 .angular/cache
+package-lock.json
