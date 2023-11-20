@@ -41,12 +41,12 @@ import { PlayerTimerComponent } from './components/player/player-timer/player-ti
 import { PlayerCommonComponent } from './components/player/player-common/player-common.component';
 import { ProposalsComponent } from './components/proposals/proposals/proposals.component';
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
-<<<<<<< HEAD
+
 import { QuestionsModalComponent } from './components/activities/questions/questions-modal/questions-modal.component';
-=======
+
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
->>>>>>> 910577d1790298b9cf791e91a89f24cc7bdefd2d
+
 
 @NgModule({
     declarations: [
@@ -72,12 +72,10 @@ import { CreateProposalComponent } from './components/proposals/create-proposal/
         PlayerCommonComponent,
         ProposalsComponent,
         ProposalDetailsComponent,
-<<<<<<< HEAD
         QuestionsModalComponent,
-=======
         NewRoomComponent,
         CreateProposalComponent,
->>>>>>> 910577d1790298b9cf791e91a89f24cc7bdefd2d
+
     ],
     imports: [
         BrowserModule,
@@ -92,11 +90,11 @@ import { CreateProposalComponent } from './components/proposals/create-proposal/
     providers: [
         CookieService,
         {
-                        provide: HTTP_INTERCEPTORS,
+            provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
             multi: true,
-          },
-     ],
+        },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
