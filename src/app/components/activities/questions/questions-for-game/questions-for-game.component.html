@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="custom-table mt-3">
+                <div class="table-row" style="cursor: default;">
+                    <div>
+                        {{ question?.question }}
+                    </div>
+                </div>
+                <div class="table-row" [class.selected]="optionSelected === 0"
+                    [class.correct-option]="optionSelected === 0 && isOptionCorrect(0)"
+                    [class.incorrect-option]="optionSelected === 0 && !isOptionCorrect(0)" (click)="selectOption(0)"
+                    (mouseenter)="onHover(0)" (mouseleave)="onMouseLeave()" style="cursor: pointer;">
+                    {{ question && question.options ? question.options[0] : 'No hay opciones disponibles' }}
+                </div>
+                <div class="table-row" [class.selected]="optionSelected === 1"
+                    [class.correct-option]="optionSelected === 1 && isOptionCorrect(1)"
+                    [class.incorrect-option]="optionSelected === 1 && !isOptionCorrect(1)" (click)="selectOption(1)"
+                    (mouseenter)="onHover(0)" (mouseleave)="onMouseLeave()" style="cursor: pointer;">
+                    {{ question && question.options ? question.options[1] : 'No hay opciones disponibles' }}
+                </div>
+                <div class="table-row" [class.selected]="optionSelected === 2"
+                    [class.correct-option]="optionSelected === 2 && isOptionCorrect(2)"
+                    [class.incorrect-option]="optionSelected === 2 && !isOptionCorrect(2)" (click)="selectOption(2)"
+                    (mouseenter)="onHover(0)" (mouseleave)="onMouseLeave()" style="cursor: pointer;">
+                    {{ question && question.options ? question.options[2] : 'No hay opciones disponibles' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="custom-table mt-3">
+                <div class="table-row">
+                    <div>
+                        {{ question?.question }}
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">
+                        {{ (question && question.options && question.options.length > 0) ? question.options[0] : 'No hay opciones disponibles' }}
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">
+                        {{ (question && question.options && question.options.length > 0) ? question.options[1] : 'No hay opciones disponibles' }}
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">
+                        {{ (question && question.options && question.options.length > 0) ? question.options[2] : 'No hay opciones disponibles' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
