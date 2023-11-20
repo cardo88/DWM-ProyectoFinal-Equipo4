@@ -2,9 +2,13 @@ h2 {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 1rem;
-    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     color:white;
+}
+
+h3 {
+    font-size: 1.2rem;
+    padding-left: 2rem;
 }
 
 .listAct {
@@ -26,8 +30,4 @@ h2 {
 
 .listAct li:last-child {
     border-bottom: none;
-}
-
-.listAct li:hover {
-    background-color: #e9ecef;
 }
