@@ -14,26 +14,29 @@
                     </div>
                     <div class="table-body">
                         <!-- <div *ngFor="let question of listQuestions" class="table-row"> -->
+                        <ng-container *ngIf="timer_running">
                             <div class="table-cell">
                                 <div>
                                     {{question.question}}
                                 </div>
                                 <div>
                                     <div *ngFor="let option of question.options" class="table-row">
-                                    {{option}}
+                                        {{option}}
                                     </div>
                                 </div>
                             </div>
                             <div class="table-cell actions">
                                 <i [routerLink]="['/edit-question', question._id]" class="fas fa-edit text-primary"></i>
                             </div>
+                        </ng-container>
                         <!-- </div> -->
                     </div>
                 </ng-container>
             </div>
         </div>
         <div class="col-3">
-            <app-player-timer></app-player-timer>
+            <app-player-timer (timer_running)="timeoff($event)"
+                [timer_time_for_activity]="timer_time_for_activity"></app-player-timer>
         </div>
     </div>
     <div class="row align-items-start m-3">

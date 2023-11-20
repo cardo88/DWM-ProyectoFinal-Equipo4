@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-player-timer',
@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerTimerComponent implements OnInit {
 
-  radio :number = 20;
-  FULL_DASH_ARRAY = 2*Math.PI*this.radio; //Length = 2πr = 2 * π * radio
+  radio: number = 20;
+  FULL_DASH_ARRAY = 2 * Math.PI * this.radio; //Length = 2πr = 2 * π * radio
   WARNING_THRESHOLD = 10;
   ALERT_THRESHOLD = 5;
+
+  
+  @Input() timer_time_for_activity = 0;
 
   COLOR_CODES = {
     info: {
@@ -26,13 +29,20 @@ export class PlayerTimerComponent implements OnInit {
     }
   };
 
-  TIME_LIMIT = 20;
+  //TIME_LIMIT = 0;
   timePassed = 0;
-  timeLeft = this.TIME_LIMIT;
+  timeLeft = this.timer_time_for_activity;
   timerInterval: any = null;
   remainingPathColor = this.COLOR_CODES.info.color;
 
+  @Output() timer_running = new EventEmitter<boolean>();
+  timeoff(timeoff:boolean) {
+    this.timer_running.emit(timeoff);
+    console.log(timeoff);
+  }
+
   ngOnInit() {
+    this.timer_time_for_activity = this.timer_time_for_activity;
     this.startTimer();
   }
 
@@ -43,11 +53,12 @@ export class PlayerTimerComponent implements OnInit {
   startTimer() {
     this.timerInterval = setInterval(() => {
       this.timePassed = this.timePassed += 1;
-      this.timeLeft = this.TIME_LIMIT - this.timePassed;
+      this.timeLeft = this.timer_time_for_activity - this.timePassed;
       this.setCircleDasharray();
       this.setRemainingPathColor(this.timeLeft);
-
+      
       if (this.timeLeft === 0) {
+        this.timeoff(false);
         this.onTimesUp();
       }
     }, 1000);
@@ -60,11 +71,12 @@ export class PlayerTimerComponent implements OnInit {
     } else if (timeLeft <= warning.threshold) {
       this.remainingPathColor = warning.color;
     }
+    //console.log("remainingPathColor:"+this.remainingPathColor);
   }
 
   calculateTimeFraction() {
-    const rawTimeFraction = this.timeLeft / this.TIME_LIMIT;
-    return rawTimeFraction - (1 / this.TIME_LIMIT) * (1 - rawTimeFraction);
+    const rawTimeFraction = this.timeLeft / this.timer_time_for_activity;
+    return rawTimeFraction - (1 / this.timer_time_for_activity) * (1 - rawTimeFraction);
   }
 
   setCircleDasharray() {
@@ -113,7 +125,9 @@ export class PlayerTimerComponent implements OnInit {
         second_s = String(seconds);
     }
 
-      return minute_s + ':' + second_s;
+    return minute_s + ':' + second_s;
   }
+
+
 
 }
