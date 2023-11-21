@@ -23,6 +23,7 @@ import { ProposalsComponent } from './components/proposals/proposals/proposals.c
 import { ProposalDetailsComponent } from './components/proposals/proposal-details/proposal-details.component';
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
+import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-room.component';
 
 import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
@@ -56,6 +57,8 @@ const routes: Routes = [
     { path: 'proposals/:id', component: ProposalDetailsComponent },
     { path: 'new-room', component: NewRoomComponent},
     { path: 'create-proposal', component: CreateProposalComponent},
+    { path: 'waiting-room/:codeNumber', component: WaitingRoomComponent },
+    
     { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
 
 ];

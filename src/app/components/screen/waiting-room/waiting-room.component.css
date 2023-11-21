@@ -1,0 +1,10 @@
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+h2.display-1 {
+    font-size: 4rem;
+    color: #007bff;
+    margin-bottom: 40px;
+}
