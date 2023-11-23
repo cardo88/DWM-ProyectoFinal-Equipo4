@@ -11,7 +11,7 @@ export class SocketWebService{
   private socket: Socket;
 
   constructor() {
-    this.socket = io('http://localhost:5000'); // Reemplaza con la URL de tu servidor
+    this.socket = io('http://localhost:5050'); // Reemplaza con la URL de tu servidor
   }
 
   public getSocket(): Socket {
