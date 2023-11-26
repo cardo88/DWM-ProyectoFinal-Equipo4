@@ -28,6 +28,6 @@ export class RoomService {
   getRooms(): Observable<any> {
     console.log('entramo');
     return this.http.get(this.url);
-}
+  }
 
 }

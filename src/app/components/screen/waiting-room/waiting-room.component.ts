@@ -10,10 +10,9 @@ import { SocketWebService } from 'src/app/services/socket-web.service';
 export class WaitingRoomComponent implements OnInit {
   
   roomCode: string = '';
-  connectedUsersCount: number = 0;
-  connectedUsers: string[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private webSocketService: SocketWebService,
     private changeDetectorRef: ChangeDetectorRef
   ) {}
@@ -21,27 +20,18 @@ export class WaitingRoomComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.roomCode = params['codeNumber'];
-      this.initWebSocket();
     });
+    this.getConnectedUsers();
+    this.getConnectedUsersCount();
   }
 
 
-  /////////////ESTA MAL
-  initWebSocket() {
-    const socket = this.webSocketService.getSocket();
+  getConnectedUsersCount(): number {
+    return this.webSocketService.getConnectedUsersCount();
+  }
 
-    socket.on('joinRoom', ({ nickname }: { nickname: string }) => {
-      //Escucha el evento de que alguien ingreso
-      this.connectedUsers.push(nickname);
-      this.connectedUsersCount++;
-      this.changeDetectorRef.detectChanges();
-    });
-
-    // Escucha cuando alguien sale pero eso es posible???? No deverian salir todos al finalizar?
-    socket.on('disconnect', () => {
-      this.connectedUsersCount--;
-      this.changeDetectorRef.detectChanges();
-    });
+  getConnectedUsers(): string[] {
+    return this.webSocketService.getConnectedUsers();
   }
 
 }

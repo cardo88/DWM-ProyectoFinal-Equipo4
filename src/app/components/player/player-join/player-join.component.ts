@@ -66,7 +66,8 @@ export class PlayerJoinComponent {
         } else {
           const socket = this.socketService.getSocket();
           const room = this.player_code;
-          const nickname = this.player_nickname
+          const nickname = this.player_nickname;
+          //this.socketService.initSocket(room); //es para indicar los jugadores que entraron a la sala
           socket.emit('joinRoom', { room,nickname });
           this.toastr.success('Ingreso a la sala exitoso!', '¡Éxito!');
           this.router.navigate(['player-room', room]);
