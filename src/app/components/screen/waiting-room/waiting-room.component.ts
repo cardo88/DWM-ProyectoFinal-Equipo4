@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SocketWebService } from 'src/app/services/socket-web.service';
 
@@ -8,30 +8,42 @@ import { SocketWebService } from 'src/app/services/socket-web.service';
   styleUrls: ['./waiting-room.component.css']
 })
 export class WaitingRoomComponent implements OnInit {
-  
+
   roomCode: string = '';
+  nicknames: string[] = [];
+  mensaje : string ='';
 
   constructor(
     private route: ActivatedRoute,
     private webSocketService: SocketWebService,
     private changeDetectorRef: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+
     this.route.params.subscribe(params => {
       this.roomCode = params['codeNumber'];
     });
-    this.getConnectedUsers();
-    this.getConnectedUsersCount();
+
+    const socket = this.webSocketService.getSocket();
+
+    socket.on('joinRoom', (data) => {
+      // "data" esta rellenado en backend-> index.js
+      this.mensaje = 'Socket.id ' + data.socketid + ' | Nickname: ' + data.nickname + ' | Sala: ' + data.room;
+      console.log(this.mensaje);
+      this.nicknames.push(data.nickname);
+      this.roomCode = data.room;
+    });
+   
   }
 
-
-  getConnectedUsersCount(): number {
-    return this.webSocketService.getConnectedUsersCount();
+  mandarMsj(){
+    const socket2 = this.webSocketService.getSocket();
+    socket2.on('mensaje', (data) => {
+      console.log('mensaje:', data);
+      this.mensaje = data.mensaje;
+  });
   }
 
-  getConnectedUsers(): string[] {
-    return this.webSocketService.getConnectedUsers();
-  }
 
 }

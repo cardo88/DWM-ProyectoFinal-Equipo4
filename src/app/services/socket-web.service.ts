@@ -8,8 +8,6 @@ import { io, Socket } from 'socket.io-client';
 
 export class SocketWebService{
   private socket: Socket;
-  connectedUsersCount: number = 0;
-  connectedUsers: string[] = []; 
 
   constructor() {
     this.socket = io('http://localhost:5050'); // Reemplaza con la URL de tu servidor
@@ -19,48 +17,7 @@ export class SocketWebService{
     return this.socket;
   }
 
-  // Unirse a una room específica
-  joinRoom(room: string, nickname: string) {
-    this.socket.emit('joinRoom', { room, nickname });
-  }
-
-  // Comenzar una partida en una room
-  startPlay(room: string, play: any) {
-    this.socket.emit('roomStartPlay', { room, play });
-  }
-
-  closeSocket() {
-    this.socket.disconnect();
-  }
-
-  // Enviar mensajes genéricos a una room
-  sendMessage(room: string, message: any) {
-    this.socket.emit('mensaje', { room, message });
-  }
-
-  public initSocket(room: string) {
-    this.socket = io('http://localhost:4200/' + room);
-    this.initSocketListeners();
-  }
-
-  private initSocketListeners() {
-    this.socket.on('joinRoom', ({ nickname }: { nickname: string }) => {
-      this.connectedUsers.push(nickname);
-      this.connectedUsersCount++;
-    });
-  }
-
-  public getConnectedUsersCount(): number {
-    return this.connectedUsersCount;
-  }
-
-  public getConnectedUsers(): string[] {
-    return this.connectedUsers;
-  }
-
 }
-
-
 
 // export class SocketWebService extends Socket {
 

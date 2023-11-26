@@ -1,10 +1,11 @@
 <div class="container mt-5 text-center">
     <h1>Room code</h1>
     <h2 class="display-1">{{ roomCode }}</h2>
-    <h3>Connected Users: {{ getConnectedUsersCount() }}</h3>
-    <div *ngIf="getConnectedUsersCount() > 0">
+    <h3>Connected Users: {{nicknames.length}} </h3>
+    <div *ngIf="nicknames.length > 0">
         <ul>
-            <li *ngFor="let user of getConnectedUsers()">{{ user }}</li>
+            <li *ngFor="let user of nicknames">{{ user }}</li>
         </ul>
     </div>
+    <button (click)="mandarMsj()"> EnviarMensaje a Sala</button>
 </div>
