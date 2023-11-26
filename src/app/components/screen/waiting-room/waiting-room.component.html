@@ -1,4 +1,10 @@
 <div class="container mt-5 text-center">
     <h1>Room code</h1>
     <h2 class="display-1">{{ roomCode }}</h2>
+    <h3>Connected Users: {{ connectedUsersCount }}</h3>
+    <div *ngIf="connectedUsersCount > 0">
+        <ul>
+            <li *ngFor="let user of connectedUsers">{{ user }}</li>
+        </ul>
+    </div>
 </div>

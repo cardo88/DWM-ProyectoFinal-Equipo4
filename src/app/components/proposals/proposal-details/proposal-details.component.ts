@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProposalService } from '../../../services/proposal.service';
 import { RoomService } from '../../../services/room.service';
+import { SocketWebService } from 'src/app/services/socket-web.service';
 import { Room } from 'src/app/models/room';
+
 
 @Component({
   selector: 'app-proposal-details',
@@ -17,6 +19,7 @@ export class ProposalDetailsComponent implements OnInit {
     private proposalService: ProposalService,
     private roomService: RoomService,
     private route: ActivatedRoute,
+    private webSocketService: SocketWebService,
     private router: Router
   ) {}
 
@@ -33,6 +36,7 @@ export class ProposalDetailsComponent implements OnInit {
   createRoom() {
     let codeNumber = Math.floor(1000 + Math.random() * 9000).toString();
     this.checkAndCreateRoom(codeNumber).then((uniqueCodeNumber) => {
+      this.initWebSocket(uniqueCodeNumber);
       this.router.navigate(['/waiting-room', uniqueCodeNumber]);
     });
   }
@@ -59,6 +63,10 @@ export class ProposalDetailsComponent implements OnInit {
     }
     
     return codeNumber;
+  }
+
+  initWebSocket(roomCode: string) {
+    this.webSocketService.initSocket(roomCode);
   }
 
 }
