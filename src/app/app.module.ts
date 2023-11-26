@@ -19,7 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
-import { AuthInterceptor } from './auth.interceptor';
+import { AuthInterceptor } from './services/auth.interceptor';
 import { CookieService } from 'ngx-cookie-service';
 
 import { ListActivitiesComponent } from './components/activities/list-activities/list-activities.component';
@@ -45,6 +45,7 @@ import { QuestionsModalComponent } from './components/activities/questions/quest
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-room.component';
+import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
 
 @NgModule({
     declarations: [
@@ -74,6 +75,7 @@ import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-r
         NewRoomComponent,
         CreateProposalComponent,
         WaitingRoomComponent,
+        QuestionsForGameComponent,
     ],
     imports: [
         BrowserModule,
@@ -88,11 +90,11 @@ import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-r
     providers: [
         CookieService,
         {
-                        provide: HTTP_INTERCEPTORS,
+            provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
             multi: true,
-          },
-     ],
+        },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
