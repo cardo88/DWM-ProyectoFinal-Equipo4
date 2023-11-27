@@ -8,3 +8,34 @@ h2.display-1 {
     color: #007bff;
     margin-bottom: 40px;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+li {
+    display: inline-block;
+    margin-right: 100px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.start-button{
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 80px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+}
+
+.start-button:hover{
+    background-color: #218838;
+}
