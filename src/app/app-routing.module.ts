@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes,CanActivate  } from '@angular/router';
 
 import { ListActivitiesComponent } from './components/activities/list-activities/list-activities.component';
 
@@ -32,13 +32,14 @@ import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
 import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
 import { from } from 'rxjs';
+import { AuthGuardService as AuthGuard  } from './services/auth-guard.service';
 
 
-const routes: Routes = [ 
+const routes: Routes = [
     { path: 'player-activity', component: PlayerActivityComponent },
     { path: 'player-join', component: PlayerJoinComponent },
     { path: 'player-wait', component: PlayerWaitComponent },
-    { path: 'player-room/:room', component: PlayerCommonComponent},
+    { path: 'player-room/:room', component: PlayerCommonComponent },
 
     { path: 'list-activities', component: ListActivitiesComponent },
 
@@ -48,14 +49,14 @@ const routes: Routes = [
     { path: 'trivia-game', component: CreateQuestionComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'inicio', component: InicioComponent},
+    { path: 'inicio', component: InicioComponent },
 
     { path: 'edit-question/:id', component: UpdateQuestionComponent },
     { path: 'trivia-game', component: TriviaGameComponent },
     { path: 'question-modal', component: QuestionsModalComponent },
     { path: 'questions-for-game', component: QuestionsForGameComponent },
-    
-    
+
+
     { path: 'words-list', component: WordsListComponent },
     { path: 'create-word', component: CreateWordComponent },
     { path: 'edit-word/:id', component: UpdateWordsComponent },
@@ -63,11 +64,11 @@ const routes: Routes = [
 
     { path: 'list-proposal', component: ProposalsComponent },
 
-    { path: 'proposals/:id', component: ProposalDetailsComponent },
-    { path: 'new-room', component: NewRoomComponent},
-    { path: 'create-proposal', component: CreateProposalComponent},
-    { path: 'waiting-room/:codeNumber', component: WaitingRoomComponent },
-    { path: 'waiting-results/:codeNumber/:connectedUsers', component: WaitingResultsComponent },
+    { path: 'proposals/:id', canActivate: [AuthGuard], component: ProposalDetailsComponent },
+    { path: 'new-room',canActivate: [AuthGuard], component: NewRoomComponent},
+    { path: 'create-proposal', canActivate: [AuthGuard],component: CreateProposalComponent},
+    { path: 'waiting-room/:codeNumber', canActivate: [AuthGuard],component: WaitingRoomComponent },
+    { path: 'waiting-results/:codeNumber/:connectedUsers', canActivate: [AuthGuard],component: WaitingResultsComponent },
     
     { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 
