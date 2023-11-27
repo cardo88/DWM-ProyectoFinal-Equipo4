@@ -45,6 +45,7 @@ import { NewRoomComponent } from './components/screen/new-room/new-room.componen
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-room.component';
 import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
+import { WaitingResultsComponent } from './components/screen/waiting-results/waiting-results.component';
 
 @NgModule({
     declarations: [
@@ -74,6 +75,7 @@ import { QuestionsForGameComponent } from './components/activities/questions/que
         CreateProposalComponent,
         WaitingRoomComponent,
         QuestionsForGameComponent,
+        WaitingResultsComponent
     ],
     imports: [
         BrowserModule,
