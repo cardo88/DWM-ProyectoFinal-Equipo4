@@ -34,14 +34,14 @@ export class WaitingResultsComponent implements OnInit {
 
     socket.on('playerFinished', (data) => {
       console.log("Finish");
-      if (data.room === this.roomCode) {
-        playersFinishedCount++;
 
-        if (playersFinishedCount === this.connectedUsers) {
+        playersFinishedCount++;
+        console.log(this.connectedUsers);
+        console.log(playersFinishedCount);
+        if (playersFinishedCount == this.connectedUsers) {
           console.log('Todos los jugadores han terminado.');
-          this.triviaData()
+          this.triviaData();
         }
-      }
     });
 
   }
@@ -51,13 +51,6 @@ export class WaitingResultsComponent implements OnInit {
       
       this.questions = data.filter(question => {
         return question.votes.some((vote: { room: string; }) => vote.room === this.roomCode);
-      });
-
-      this.router.navigate(['/show-results', this.roomCode], {
-        queryParams: {
-          roomCode: this.roomCode,
-          questions: JSON.stringify(this.questions)
-        }
       });
 
     });
