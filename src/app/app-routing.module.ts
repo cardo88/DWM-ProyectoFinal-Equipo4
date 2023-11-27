@@ -69,7 +69,7 @@ const routes: Routes = [
     { path: 'waiting-room/:codeNumber', component: WaitingRoomComponent },
     { path: 'waiting-results/:codeNumber', component: WaitingResultsComponent},
     
-    { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
+    { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 
 ];
 

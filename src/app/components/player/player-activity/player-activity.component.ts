@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Questions } from 'src/app/models/trivia-game';
 import { CreateQuestionService } from 'src/app/services/create-question.service';
+import { RoomService } from 'src/app/services/room.service';
+
+//timer_2
+import { OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 // Import timer and Subscription
 import { timer, Subscription } from 'rxjs';
@@ -13,43 +18,98 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class PlayerActivityComponent {
 
+
+  //timer_2
+  minutes: number =0;
+  seconds: number =0;
+  milliseconds: number =0;
+  totalMilliseconds: number=0;
+
+  //variables para cargar Questions
   isLoading = true;
-  noProductsFound = false;
-  question = new Questions("pepe", ["pepe", "pepe"], "pepe");
-  current_question_id : string = "655b308365ba681bcaa1c849";
+  noQuestionFound = false;
+  counter: number = 0;
+
+  //variables menejo de Questions
+  question = new Questions("0", ["0", "0"], "0");
+  question_id: string = "";
+  listQuestions: Questions[] = [];
+
+
+  //variable para botton 
+  bottonSiguiente = true;
+  bottonText = "Siguiente pregunta";
+
+  //variable para room
   @Input() room_id = "";
 
-  myTimerSub!: Subscription;
-
+  //variable para timer
+  time = 20000; // Por ejemplo, 1 minuto (60000 milisegundos)
 
   constructor(
     private _createQuestionService: CreateQuestionService,
-    // private toastr: ToastrService,
-    // private router: Router
-  ) { }
-
-  ngOnInit() {
-    // Create a timer that emits values every second
-    const ti = timer(1000, 1000);
-
-    // Complete the timer after 3 seconds (3000 ms)
-    this.myTimerSub = ti.pipe(
-      takeUntil(timer(2000))
-    ).subscribe(t => {
-      console.log("Tick");
-      this.getQuestions();
-    });
+    private _roomService: RoomService,
+  ) {
   }
 
-  getQuestions() {
-    this.isLoading = true;
-    this._createQuestionService.getQuestion(this.current_question_id).subscribe(data => { //pregunta hardcodeada...
-      this.question = data;
-      this.isLoading = false;
+  ngOnInit() {
 
-      if (data.Length === 0) {
-        this.noProductsFound = true;
+    this.getQuestions();
+
+    //timer_2
+    this.minutes = 0;
+    this.seconds = 0;
+    this.milliseconds = 0;
+    this.totalMilliseconds = this.time; // Por ejemplo, 1 minuto (60000 milisegundos)
+    this.startStopwatch();
+
+  }
+
+  //timer_2
+  startStopwatch() {
+    interval(10).subscribe(() => {
+      this.totalMilliseconds -= 10;
+  
+      if (this.totalMilliseconds >= 0) {
+        this.minutes = Math.floor(this.totalMilliseconds / 60000);
+        this.seconds = Math.floor((this.totalMilliseconds % 60000) / 1000);
+        this.milliseconds = Math.floor((this.totalMilliseconds % 1000) / 10);
+      }else{
+        this.timeoff(false);
       }
     });
   }
+
+
+  getQuestions() {
+    this.isLoading = true;
+    this._roomService.getQuestions(this.room_id).subscribe(data => {
+      this.listQuestions = data;
+      this.updateQuestion();
+      if (data.length === 0) {
+        this.noQuestionFound = true;
+      }
+    });
+  }
+
+  updateQuestion() {
+    if (this.listQuestions.length >= this.counter+1) {
+      this.question = this.listQuestions[this.counter];
+      this.question_id = this.question._id!.toString();
+      this.counter++;
+      this.isLoading = false;
+      this.totalMilliseconds = this.time;
+    } else {
+      this.bottonSiguiente = false;
+      this.bottonText = "No hay más preguntas";
+    }
+  }
+
+
+  timer_running = true;
+  timeoff(timeoff: boolean) {
+    this.timer_running = timeoff;
+  }
+
+
 }

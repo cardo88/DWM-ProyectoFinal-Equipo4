@@ -30,4 +30,8 @@ export class RoomService {
     return this.http.get(this.url);
   }
 
+  getQuestions(codeNumber: string): Observable<any> {
+    return this.http.get(this.url + "questions/" + codeNumber);
+  }
+
 }

@@ -23,7 +23,8 @@ export class PlayerCommonComponent implements OnInit {
 
         socket.on('joinRoom', (data) => {
             // "data" esta rellenado en backend-> index.js
-            this.mensaje = 'Socket.id ' + data.socketid + ' | Nickname: ' + data.nickname + ' | Sala: ' + data.room;
+            // this.mensaje = 'Socket.id ' + data.socketid + ' | Nickname: ' + data.nickname + ' | Sala: ' + data.room;
+            this.mensaje = ' Nickname: ' + data.nickname + ' | Sala: ' + data.room;
             console.log(this.mensaje);
             this.nickname = data.nickname;
             this.room = data.room;

@@ -1,49 +1,42 @@
 <div class="conteiner">
     <div class="row align-items-start">
-        <div class="col-9">
-            <div class="custom-table mt-3">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="custom-table mt-5">
                 <div class="table-header">
                     <div class="table-cell">Actividad</div>
                 </div>
-                <div *ngIf="isLoading" class="loading-container">
-                    <i class="fa-solid fa-question" style="font-size: 2rem;"></i>
-                </div>
                 <ng-container *ngIf="!isLoading">
-                    <div *ngIf="noProductsFound">
+                    <div *ngIf="noQuestionFound">
                         <h5 class="no-products-message">No hay productos para mostrar</h5>
                     </div>
-                    <div class="table-body">
-                        <!-- <div *ngFor="let question of listQuestions" class="table-row"> -->
-                            <div class="table-cell">
-                                <div>
-                                    {{question.question}}
-                                </div>
-                                <div>
-                                    <div *ngFor="let option of question.options" class="table-row">
-                                    {{option}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-cell actions">
-                                <i [routerLink]="['/edit-question', question._id]" class="fas fa-edit text-primary"></i>
-                            </div>
-                        <!-- </div> -->
+                    <!-- timer_2 -->
+                    <div class="stopwatch">
+                        <span *ngIf="totalMilliseconds > 0">{{ minutes| number:'2.0-0'}}:</span>
+                        <span *ngIf="totalMilliseconds > 0">{{ seconds| number:'2.0-0'}}</span>
+                        <!-- <span *ngIf="totalMilliseconds > 0">{{ milliseconds }}</span> -->
+                        <span *ngIf="totalMilliseconds <= 0">0:00</span>
                     </div>
+                    <!-- <button (click)="startStopwatch()">Start</button> -->
+                    <!-- timer_2 -->
+                    <ng-container *ngIf="timer_running">
+                        <app-questions-for-game [question]="question"></app-questions-for-game>
+                        <div class="thickLine">
+                            <app-player-vote [question_id]="question_id" [room_id]="room_id"></app-player-vote>
+                        </div>
+                        <button type="button" class="btn btn-info" [disabled]="!bottonSiguiente"
+                            (click)="updateQuestion()">{{bottonText}}</button>
+                    </ng-container>
                 </ng-container>
             </div>
         </div>
-        <div class="col-3">
-            <app-player-timer></app-player-timer>
-        </div>
+        <div class="col-2"></div>
     </div>
     <div class="row align-items-start m-3">
         <div class="col-5"></div>
         <div class="col-2">
-            <button type="button" class="btn btn-info">Siguiente Actividad</button>
+
         </div>
         <div class="col-5"></div>
     </div>
-</div>
-<div class="thickLine">
-    <app-player-vote [question_id]="current_question_id" [room_id]="room_id"></app-player-vote>
 </div>
