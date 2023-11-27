@@ -10,6 +10,7 @@ import { interval } from 'rxjs';
 // Import timer and Subscription
 import { timer, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SocketWebService } from 'src/app/services/socket-web.service';
 
 @Component({
   selector: 'app-player-activity',
@@ -20,10 +21,10 @@ export class PlayerActivityComponent {
 
 
   //timer_2
-  minutes: number =0;
-  seconds: number =0;
-  milliseconds: number =0;
-  totalMilliseconds: number=0;
+  minutes: number = 0;
+  seconds: number = 0;
+  milliseconds: number = 0;
+  totalMilliseconds: number = 0;
 
   //variables para cargar Questions
   isLoading = true;
@@ -34,21 +35,26 @@ export class PlayerActivityComponent {
   question = new Questions("0", ["0", "0"], "0");
   question_id: string = "";
   listQuestions: Questions[] = [];
+  nextQuestion: boolean = true;
+
 
 
   //variable para botton 
   bottonSiguiente = true;
   bottonText = "Siguiente pregunta";
+  votedQuestion = true;
 
   //variable para room
   @Input() room_id = "";
+  @Input() nickname = "";
 
   //variable para timer
-  time = 20000; // Por ejemplo, 1 minuto (60000 milisegundos)
+  time = 20000; // Por ejemplo, 1 minuto (60000 milisegundos) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TIMER
 
   constructor(
     private _createQuestionService: CreateQuestionService,
     private _roomService: RoomService,
+    private socketService: SocketWebService
   ) {
   }
 
@@ -69,12 +75,12 @@ export class PlayerActivityComponent {
   startStopwatch() {
     interval(10).subscribe(() => {
       this.totalMilliseconds -= 10;
-  
+
       if (this.totalMilliseconds >= 0) {
         this.minutes = Math.floor(this.totalMilliseconds / 60000);
         this.seconds = Math.floor((this.totalMilliseconds % 60000) / 1000);
         this.milliseconds = Math.floor((this.totalMilliseconds % 1000) / 10);
-      }else{
+      } else {
         this.timeoff(false);
       }
     });
@@ -93,17 +99,27 @@ export class PlayerActivityComponent {
   }
 
   updateQuestion() {
-    if (this.listQuestions.length >= this.counter+1) {
+    if (this.listQuestions.length >= this.counter + 1) {
       this.question = this.listQuestions[this.counter];
       this.question_id = this.question._id!.toString();
       this.counter++;
       this.isLoading = false;
       this.totalMilliseconds = this.time;
+      this.nextQuestion = true;
+      this.votedQuestion = false;
     } else {
       this.bottonSiguiente = false;
       this.bottonText = "No hay más preguntas";
+
+      const socket = this.socketService.getSocket();
+      socket.emit('playerFinished', { room : this.room_id, nickname : this.nickname});
     }
+  };
+
+  voteEvent(value: boolean) {
+    this.votedQuestion = value;
   }
+
 
 
   timer_running = true;
