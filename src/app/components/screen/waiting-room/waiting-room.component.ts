@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SocketWebService } from 'src/app/services/socket-web.service';
 
@@ -45,7 +45,8 @@ export class WaitingRoomComponent implements OnInit {
     let room = this.roomCode
     //socket.emit('mensaje', { room, mensaje: 'Hola desde Angular'});
     socket.emit('roomStartPlay', { room, play: true });
-    this.router.navigate(['/waiting-results', this.roomCode]);
+
+    this.router.navigate(['/waiting-results', this.roomCode, this.nicknames.length]);
   }
 
 }

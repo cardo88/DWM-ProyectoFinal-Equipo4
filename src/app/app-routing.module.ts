@@ -32,6 +32,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
 import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
 import { from } from 'rxjs';
+import { ShowResultsComponent } from './components/screen/show-results/show-results.component';
 
 
 const routes: Routes = [ 
@@ -61,13 +62,14 @@ const routes: Routes = [
     { path: 'edit-word/:id', component: UpdateWordsComponent },
     { path: 'hangman-game', component: HangmanGameComponent },
 
-    { path: 'list-proposal', component: ProposalsComponent},
+    { path: 'list-proposal', component: ProposalsComponent },
 
     { path: 'proposals/:id', component: ProposalDetailsComponent },
     { path: 'new-room', component: NewRoomComponent},
     { path: 'create-proposal', component: CreateProposalComponent},
     { path: 'waiting-room/:codeNumber', component: WaitingRoomComponent },
-    { path: 'waiting-results/:codeNumber', component: WaitingResultsComponent},
+    { path: 'waiting-results/:codeNumber/:users', component: WaitingResultsComponent },
+    { path: 'show-results/:codeNumber', component: ShowResultsComponent },
     
     { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 
