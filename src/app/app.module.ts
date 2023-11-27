@@ -45,6 +45,8 @@ import { NewRoomComponent } from './components/screen/new-room/new-room.componen
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-room.component';
 import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
     declarations: [
@@ -92,6 +94,9 @@ import { QuestionsForGameComponent } from './components/activities/questions/que
             useClass: AuthInterceptor,
             multi: true,
         },
+        AuthGuardService,
+        { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
     ],
     bootstrap: [AppComponent]
 })
