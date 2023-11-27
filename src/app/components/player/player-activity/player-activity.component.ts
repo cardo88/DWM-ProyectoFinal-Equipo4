@@ -49,7 +49,7 @@ export class PlayerActivityComponent {
   @Input() nickname = "";
 
   //variable para timer
-  time = 20000; // Por ejemplo, 1 minuto (60000 milisegundos)
+  time = 20000; // Por ejemplo, 1 minuto (60000 milisegundos) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TIMER
 
   constructor(
     private _createQuestionService: CreateQuestionService,
@@ -118,7 +118,6 @@ export class PlayerActivityComponent {
 
   voteEvent(value: boolean) {
     this.votedQuestion = value;
-    console.log("voto recibido: "+ this.votedQuestion);
   }
 
 
