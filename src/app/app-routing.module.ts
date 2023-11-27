@@ -26,6 +26,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
 import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-room.component';
+import { WaitingResultsComponent  } from './components/screen/waiting-results/waiting-results.component';
 
 import { SigninComponent } from './components/signin/signin.component';
 import { LoginComponent } from './components/login/login.component';
@@ -64,10 +65,11 @@ const routes: Routes = [
     { path: 'list-proposal', component: ProposalsComponent },
 
     { path: 'proposals/:id', canActivate: [AuthGuard], component: ProposalDetailsComponent },
-    { path: 'new-room', canActivate: [AuthGuard], component: NewRoomComponent },
-    { path: 'create-proposal', canActivate: [AuthGuard], component: CreateProposalComponent },
-    { path: 'waiting-room/:codeNumber', canActivate: [AuthGuard], component: WaitingRoomComponent },
-
+    { path: 'new-room',canActivate: [AuthGuard], component: NewRoomComponent},
+    { path: 'create-proposal', canActivate: [AuthGuard],component: CreateProposalComponent},
+    { path: 'waiting-room/:codeNumber', canActivate: [AuthGuard],component: WaitingRoomComponent },
+    { path: 'waiting-results/:codeNumber/:connectedUsers', canActivate: [AuthGuard],component: WaitingResultsComponent },
+    
     { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 
 ];

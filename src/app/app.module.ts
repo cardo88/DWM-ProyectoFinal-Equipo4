@@ -47,6 +47,7 @@ import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-r
 import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { WaitingResultsComponent } from './components/screen/waiting-results/waiting-results.component';
 
 @NgModule({
     declarations: [
@@ -76,6 +77,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
         CreateProposalComponent,
         WaitingRoomComponent,
         QuestionsForGameComponent,
+        WaitingResultsComponent
     ],
     imports: [
         BrowserModule,
