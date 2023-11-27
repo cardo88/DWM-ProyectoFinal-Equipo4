@@ -67,7 +67,7 @@ const routes: Routes = [
     { path: 'create-proposal', component: CreateProposalComponent},
     { path: 'waiting-room/:codeNumber', component: WaitingRoomComponent },
     
-    { path: '**', redirectTo: 'player-join', pathMatch: 'full' }
+    { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 
 ];
 
