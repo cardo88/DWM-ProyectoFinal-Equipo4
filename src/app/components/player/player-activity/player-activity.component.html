@@ -22,7 +22,7 @@
                     <ng-container *ngIf="timer_running">
                         <app-questions-for-game [question]="question"></app-questions-for-game>
                         <div class="thickLine">
-                            <app-player-vote [question_id]="question_id" [room_id]="room_id"></app-player-vote>
+                            <app-player-vote [question_id]="question_id" [room_id]="room_id" [nextQuestion]="nextQuestion"></app-player-vote>
                         </div>
                         <button type="button" class="btn btn-info" [disabled]="!bottonSiguiente"
                             (click)="updateQuestion()">{{bottonText}}</button>

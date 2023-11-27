@@ -35,11 +35,13 @@ export class PlayerActivityComponent {
   question = new Questions("0", ["0", "0"], "0");
   question_id: string = "";
   listQuestions: Questions[] = [];
+  nextQuestion: boolean = true;
 
 
   //variable para botton 
   bottonSiguiente = true;
   bottonText = "Siguiente pregunta";
+  votedQuestion = false;
 
   //variable para room
   @Input() room_id = "";
@@ -102,6 +104,7 @@ export class PlayerActivityComponent {
       this.counter++;
       this.isLoading = false;
       this.totalMilliseconds = this.time;
+      this.nextQuestion = true;
     } else {
       this.bottonSiguiente = false;
       this.bottonText = "No hay más preguntas";

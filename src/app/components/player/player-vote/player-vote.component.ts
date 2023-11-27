@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { CreateQuestionService } from '../../../services/create-question.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,6 +11,7 @@ export class PlayerVoteComponent {
 
   @Input() question_id = "";
   @Input() room_id = "";
+  @Input() nextQuestion = true;
 
   constructor(
     private toastr: ToastrService,
@@ -18,22 +19,50 @@ export class PlayerVoteComponent {
 
   }
 
+
+  // En el componente hijo (PlayerVoteComponent)
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['question_id'] && changes['question_id'].currentValue !== changes['question_id'].previousValue) {
+      // Cambiar 'nextQuestion' a true cuando 'question_id' cambia
+      this.nextQuestion = true;
+    }
+  }
+
+
   votePositive() {
-    this._createQuestionService.addVotePositive(this.question_id,this.room_id).subscribe(data => {
-      this.toastr.success('Voto +1 :)', 'Votación');
-    })
+    if (!this.nextQuestion) {
+      this.toastr.warning('Esperar a la siguiente pregunta', 'Votación');
+      return;
+    } else {
+      this._createQuestionService.addVotePositive(this.question_id, this.room_id).subscribe(data => {
+        this.toastr.success('Voto +1 :)', 'Votación');
+        this.nextQuestion = false;
+      })
+    }
   }
 
   voteNeutral() {
-    this._createQuestionService.addVoteNeutral(this.question_id,this.room_id).subscribe(data => {
-      this.toastr.success('Voto 0 :| ', 'Votación');
-    })
+    if (!this.nextQuestion) {
+      this.toastr.warning('Esperar a la siguiente pregunta', 'Votación');
+      return;
+    } else {
+      this._createQuestionService.addVoteNeutral(this.question_id, this.room_id).subscribe(data => {
+        this.toastr.success('Voto 0 :| ', 'Votación');
+        this.nextQuestion = false;
+      })
+    }
   }
 
   voteNegative() {
-    this._createQuestionService.addVoteNegative(this.question_id,this.room_id).subscribe(data => {
-      this.toastr.success('Votado -1 :(', 'Votación');
-    })
+    if (!this.nextQuestion) {
+      this.toastr.warning('Esperar a la siguiente pregunta', 'Votación');
+      return;
+    } else {
+      this._createQuestionService.addVoteNegative(this.question_id, this.room_id).subscribe(data => {
+        this.toastr.success('Votado -1 :(', 'Votación');
+        this.nextQuestion = false;
+      })
+    }
   }
 
 }
