@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import { CreateQuestionService } from '../../../services/create-question.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,6 +12,9 @@ export class PlayerVoteComponent {
   @Input() question_id = "";
   @Input() room_id = "";
   @Input() nextQuestion = true;
+
+  @Output() votado = new EventEmitter<boolean>();
+
 
   constructor(
     private toastr: ToastrService,
@@ -37,6 +40,7 @@ export class PlayerVoteComponent {
       this._createQuestionService.addVotePositive(this.question_id, this.room_id).subscribe(data => {
         this.toastr.success('Voto +1 :)', 'Votación');
         this.nextQuestion = false;
+        this.votadoEvent(true);
       })
     }
   }
@@ -49,6 +53,7 @@ export class PlayerVoteComponent {
       this._createQuestionService.addVoteNeutral(this.question_id, this.room_id).subscribe(data => {
         this.toastr.success('Voto 0 :| ', 'Votación');
         this.nextQuestion = false;
+        this.votadoEvent(true);
       })
     }
   }
@@ -61,8 +66,13 @@ export class PlayerVoteComponent {
       this._createQuestionService.addVoteNegative(this.question_id, this.room_id).subscribe(data => {
         this.toastr.success('Votado -1 :(', 'Votación');
         this.nextQuestion = false;
+        this.votadoEvent(true);
       })
     }
+  }
+
+  votadoEvent(value: boolean) {
+    this.votado.emit(value);
   }
 
 }

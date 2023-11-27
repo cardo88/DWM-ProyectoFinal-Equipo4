@@ -38,10 +38,11 @@ export class PlayerActivityComponent {
   nextQuestion: boolean = true;
 
 
+
   //variable para botton 
   bottonSiguiente = true;
   bottonText = "Siguiente pregunta";
-  votedQuestion = false;
+  votedQuestion = true;
 
   //variable para room
   @Input() room_id = "";
@@ -105,6 +106,7 @@ export class PlayerActivityComponent {
       this.isLoading = false;
       this.totalMilliseconds = this.time;
       this.nextQuestion = true;
+      this.votedQuestion = false;
     } else {
       this.bottonSiguiente = false;
       this.bottonText = "No hay más preguntas";
@@ -113,6 +115,11 @@ export class PlayerActivityComponent {
       socket.emit('playerFinished', { room : this.room_id, nickname : this.nickname});
     }
   };
+
+  voteEvent(value: boolean) {
+    this.votedQuestion = value;
+    console.log("voto recibido: "+ this.votedQuestion);
+  }
 
 
 
