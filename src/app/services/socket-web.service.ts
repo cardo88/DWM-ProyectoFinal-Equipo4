@@ -1,6 +1,5 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-// import { Socket } from 'ngx-socket-io';
 import { io, Socket } from 'socket.io-client';
 
 @Injectable({
@@ -17,9 +16,8 @@ export class SocketWebService{
   public getSocket(): Socket {
     return this.socket;
   }
+
 }
-
-
 
 // export class SocketWebService extends Socket {
 
