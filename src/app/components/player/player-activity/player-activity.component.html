@@ -19,14 +19,28 @@
                     </div>
                     <!-- <button (click)="startStopwatch()">Start</button> -->
                     <!-- timer_2 -->
-                    <ng-container *ngIf="timer_running">
+                    <ng-template [ngIf]="timer_running">
                         <app-questions-for-game [question]="question"></app-questions-for-game>
                         <div class="thickLine">
-                            <app-player-vote [question_id]="question_id" [room_id]="room_id"></app-player-vote>
+                            <app-player-vote [question_id]="question_id" [room_id]="room_id"
+                                [nextQuestion]="nextQuestion" (votado)="voteEvent($event)"></app-player-vote>
                         </div>
-                        <button type="button" class="btn btn-info" [disabled]="!bottonSiguiente"
+                        <button type="button" class="btn btn-info" [disabled]="!bottonSiguiente || !votedQuestion"
                             (click)="updateQuestion()">{{bottonText}}</button>
-                    </ng-container>
+                    </ng-template>
+                    <ng-template [ngIf]="!timer_running">
+                        <div class="text-center mt-5">
+                            <img src="../../../assets/images/logo.png" alt="Logo de la aplicación" width="150">
+                            <h1>Muchas gracias por su participación!</h1>
+                            <p>¡Le esperamos pronto!</p>
+
+                            <!-- Botones de acción -->
+                            <div class="mt-3">
+                                <a routerLink="/player-join" class="btn btn-primary mx-2">Unirse a otra partida</a>
+                                <a routerLink="/inicio" class="btn btn-success mx-2">Volver al inicio</a>
+                            </div>
+                        </div>
+                    </ng-template>
                 </ng-container>
             </div>
         </div>
