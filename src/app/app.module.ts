@@ -43,6 +43,7 @@ import { ProposalDetailsComponent } from './components/proposals/proposal-detail
 import { QuestionsModalComponent } from './components/activities/questions/questions-modal/questions-modal.component';
 import { NewRoomComponent } from './components/screen/new-room/new-room.component';
 import { CreateProposalComponent } from './components/proposals/create-proposal/create-proposal.component';
+import { WaitingRoomComponent } from './components/screen/waiting-room/waiting-room.component';
 import { QuestionsForGameComponent } from './components/activities/questions/questions-for-game/questions-for-game.component';
 
 @NgModule({
@@ -71,6 +72,7 @@ import { QuestionsForGameComponent } from './components/activities/questions/que
         QuestionsModalComponent,
         NewRoomComponent,
         CreateProposalComponent,
+        WaitingRoomComponent,
         QuestionsForGameComponent,
     ],
     imports: [
