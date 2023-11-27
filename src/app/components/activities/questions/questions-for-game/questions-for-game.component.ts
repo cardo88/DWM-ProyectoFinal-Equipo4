@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Questions } from 'src/app/models/trivia-game';
 import { CreateQuestionService } from 'src/app/services/create-question.service';
-
 
 
 @Component({
@@ -9,26 +8,19 @@ import { CreateQuestionService } from 'src/app/services/create-question.service'
     templateUrl: './questions-for-game.component.html',
     styleUrls: ['./questions-for-game.component.css']
 })
-export class QuestionsForGameComponent implements OnInit {
+export class QuestionsForGameComponent implements OnChanges {
 
-    listQuestions: Questions[] = [];
-    question: Questions | undefined;
+    @Input() question = new Questions("0", ["0", "0"], "0");
+
     selectedOptionIndex: number | undefined;
     optionSelected: number | undefined;
 
     constructor(private _createQuestionService: CreateQuestionService) { }
 
-    ngOnInit() {
-        this.getQuestions();
-    }
-
-    getQuestions() {
-        this._createQuestionService.getQuestions().subscribe(data => {
-            this.listQuestions = data;
-            if (this.listQuestions.length > 0) {
-                this.question = this.listQuestions[0];
-            }
-        });
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes['question'] && changes['question'].currentValue) {
+            this.clearSelection();
+        }
     }
 
     isOptionCorrect(index: number): boolean {
@@ -50,6 +42,11 @@ export class QuestionsForGameComponent implements OnInit {
     }
 
     onMouseLeave() {
+        this.selectedOptionIndex = undefined;
+    }
+
+    clearSelection() {
+        this.optionSelected = undefined;
         this.selectedOptionIndex = undefined;
     }
 }
