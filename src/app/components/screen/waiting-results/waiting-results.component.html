@@ -1,0 +1,25 @@
+<div class="container mt-5 text-center">
+    <div *ngIf="questions && questions.length">
+        <h1>Results</h1>
+        <div class="listAct">
+            <ul>
+                <li *ngFor="let question of questions">
+                    <h3>{{ question.question }}</h3>
+                    <div *ngFor="let vote of question.votes">
+                        <div *ngIf="vote.room === roomCode" class="votes">
+                            <p><img class="icon" src="../../../assets/images/like.png"> Me gusta: <span class="num">{{ vote.voteCounts['+1'] }}</span></p>
+                            <p><img class="icon" src="../../../assets/images/medaigual.png"> Me da igual: <span class="num">{{ vote.voteCounts['0'] }}</span></p>
+                            <p><img class="icon" src="../../../assets/images/dislike.png"> No me gusta: <span class="num">{{ vote.voteCounts['-1'] }}</span></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div *ngIf="!questions.length">
+        <h1>Waiting for the results...</h1>
+        <h2 class="display-1">room {{roomCode}}</h2>
+        <img src="../../../assets/images/wait-room.avif" alt="Waiting Room" class="img-center">
+    </div>
+</div>
