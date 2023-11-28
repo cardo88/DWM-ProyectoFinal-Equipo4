@@ -77,7 +77,7 @@ import { WaitingResultsComponent } from './components/screen/waiting-results/wai
         CreateProposalComponent,
         WaitingRoomComponent,
         QuestionsForGameComponent,
-        WaitingResultsComponent
+        WaitingResultsComponent,
     ],
     imports: [
         BrowserModule,
